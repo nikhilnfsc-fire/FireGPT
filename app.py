@@ -17,8 +17,35 @@ import time
 from datetime import datetime, timedelta
 
 import streamlit as st
+import gspread
+from google.oauth2.service_account import Credentials
 
 from firegpt_engine_gemini import FireGPTEngine, GEMINI_MODEL
+
+# ============================================================
+# GOOGLE SHEETS SETUP (for feedback storage)
+# ============================================================
+FEEDBACK_SHEET_NAME = "FireGPT Feedback"   # must match your Google Sheet's name exactly
+
+@st.cache_resource
+def get_feedback_sheet():
+    try:
+        scopes = [
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
+        ]
+        creds = Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"], scopes=scopes
+        )
+        client = gspread.authorize(creds)
+        sheet = client.open(FEEDBACK_SHEET_NAME).sheet1
+        return sheet
+    except Exception as e:
+        st.warning(f"Feedback sheet not connected: {e}")
+        return None
+
+
+feedback_sheet = get_feedback_sheet()
 
 # ============================================================
 # CONFIG
@@ -149,10 +176,17 @@ st.caption("Testing this with friends/colleagues? Flag anything that seemed off,
 feedback = st.text_area("Your feedback", height=80, key="feedback_box")
 if st.button("Submit feedback"):
     if feedback.strip():
-        # For now this just logs to the Streamlit Cloud app logs.
-        # Once you're ready, swap this for writing to a Google Sheet,
-        # Airtable, or a simple database so feedback isn't lost on restart.
-        print(f"[FEEDBACK] {datetime.now().isoformat()} :: {feedback}")
-        st.success("Thanks! Your feedback has been recorded.")
+        timestamp = datetime.now().isoformat()
+        # Always log locally too, as a backup
+        print(f"[FEEDBACK] {timestamp} :: {feedback}")
+
+        if feedback_sheet is not None:
+            try:
+                feedback_sheet.append_row([timestamp, feedback, live_incident_text])
+                st.success("Thanks! Your feedback has been recorded.")
+            except Exception as e:
+                st.error(f"Could not save feedback to sheet: {e}")
+        else:
+            st.warning("Feedback sheet isn't connected — feedback only logged locally for now.")
     else:
         st.warning("Feedback box is empty.")
