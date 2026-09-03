@@ -23,7 +23,7 @@ from groq import Groq
 
 from firegpt_engine_gemini import FireGPTEngine, GEMINI_MODEL
 
-GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_MODEL = "openai/gpt-oss-20b"
 
 @st.cache_resource
 def get_groq_client():
@@ -39,7 +39,7 @@ groq_client = get_groq_client()
 def generate_advisory(prompt, max_gemini_attempts=3):
     """
     Try Gemini first (with retries). If it keeps failing, fall back to Groq.
-    Returns (advisory_text, model_used) or (None, None) if everything fails.
+    Returns (advisory_text, model_used, last_error) — last_error is None on success.
     """
     last_error = None
 
@@ -50,9 +50,10 @@ def generate_advisory(prompt, max_gemini_attempts=3):
                 model=GEMINI_MODEL,
                 contents=prompt,
             )
-            return response.text, "Gemini"
+            return response.text, "Gemini", None
         except Exception as e:
-            last_error = e
+            last_error = f"[Gemini attempt {attempt}] {type(e).__name__}: {e}"
+            print(last_error)  # goes to Streamlit Cloud logs
             if attempt < max_gemini_attempts:
                 time.sleep(5)
 
@@ -63,11 +64,15 @@ def generate_advisory(prompt, max_gemini_attempts=3):
                 model=GROQ_MODEL,
                 messages=[{"role": "user", "content": prompt}],
             )
-            return completion.choices[0].message.content, "Groq (fallback)"
+            return completion.choices[0].message.content, "Groq (fallback)", None
         except Exception as e:
-            last_error = e
+            last_error = f"[Groq] {type(e).__name__}: {e}"
+            print(last_error)
+    else:
+        last_error = (last_error or "") + " | [Groq] client not configured (missing GROQ_API_KEY in secrets)"
+        print(last_error)
 
-    return None, None
+    return None, None, last_error
 
 # ============================================================
 # GOOGLE SHEETS SETUP (for feedback storage)
@@ -194,13 +199,15 @@ if submit:
             retrieved = engine.retrieve(live_incident_text, top_k=top_k)
             prompt = engine.build_prompt(live_incident_text, retrieved)
 
-            advisory_text, model_used = generate_advisory(prompt)
+            advisory_text, model_used, last_error = generate_advisory(prompt)
 
             if advisory_text is None:
                 st.error(
                     "Both the primary and backup AI models are currently unavailable. "
                     "Please wait a minute and click 'Get Advisory' again."
                 )
+                with st.expander("Technical details (for debugging)"):
+                    st.code(last_error or "No error details captured.")
                 st.stop()
 
         st.subheader("Reference incidents used")

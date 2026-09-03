@@ -36,7 +36,7 @@ from google import genai
 # is passed in by the caller. See get_api_key() below.
 DATASET_PATH = "firegpt_incidents_dataset.json"
 TOP_K = 3
-GEMINI_MODEL = "gemini-3.6-flash"   # fast + free-tier friendly
+GEMINI_MODEL = "gemini-2.5-flash"   # fast + free-tier friendly
 
 
 def get_api_key():
