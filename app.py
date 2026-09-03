@@ -19,8 +19,55 @@ from datetime import datetime, timedelta
 import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
+from groq import Groq
 
 from firegpt_engine_gemini import FireGPTEngine, GEMINI_MODEL
+
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
+@st.cache_resource
+def get_groq_client():
+    groq_key = st.secrets.get("GROQ_API_KEY")
+    if not groq_key:
+        return None
+    return Groq(api_key=groq_key)
+
+
+groq_client = get_groq_client()
+
+
+def generate_advisory(prompt, max_gemini_attempts=3):
+    """
+    Try Gemini first (with retries). If it keeps failing, fall back to Groq.
+    Returns (advisory_text, model_used) or (None, None) if everything fails.
+    """
+    last_error = None
+
+    # --- Try Gemini ---
+    for attempt in range(1, max_gemini_attempts + 1):
+        try:
+            response = engine.client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=prompt,
+            )
+            return response.text, "Gemini"
+        except Exception as e:
+            last_error = e
+            if attempt < max_gemini_attempts:
+                time.sleep(5)
+
+    # --- Gemini failed after retries, try Groq ---
+    if groq_client is not None:
+        try:
+            completion = groq_client.chat.completions.create(
+                model=GROQ_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return completion.choices[0].message.content, "Groq (fallback)"
+        except Exception as e:
+            last_error = e
+
+    return None, None
 
 # ============================================================
 # GOOGLE SHEETS SETUP (for feedback storage)
@@ -146,11 +193,15 @@ if submit:
         with st.spinner("Retrieving similar past incidents and generating advisory..."):
             retrieved = engine.retrieve(live_incident_text, top_k=top_k)
             prompt = engine.build_prompt(live_incident_text, retrieved)
-            response = engine.client.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=prompt,
-            )
-            advisory_text = response.text
+
+            advisory_text, model_used = generate_advisory(prompt)
+
+            if advisory_text is None:
+                st.error(
+                    "Both the primary and backup AI models are currently unavailable. "
+                    "Please wait a minute and click 'Get Advisory' again."
+                )
+                st.stop()
 
         st.subheader("Reference incidents used")
         for rank, r in enumerate(retrieved, start=1):
@@ -164,6 +215,8 @@ if submit:
                 st.write(f"**Evacuation & Rescue:** {inc.get('evacuation_rescue', 'N/A')}")
 
         st.subheader("FireGPT Advisory")
+        if model_used == "Groq (fallback)":
+            st.caption("⚡ Generated using backup model (Gemini was unavailable)")
         st.markdown(advisory_text)
 
 st.divider()
