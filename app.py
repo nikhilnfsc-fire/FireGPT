@@ -173,16 +173,19 @@ st.divider()
 # ============================================================
 st.subheader("Feedback")
 st.caption("Testing this with friends/colleagues? Flag anything that seemed off, missing, or wrong.")
+tester_name = st.text_input("Your name", key="tester_name")
 feedback = st.text_area("Your feedback", height=80, key="feedback_box")
 if st.button("Submit feedback"):
-    if feedback.strip():
+    if not tester_name.strip():
+        st.warning("Please enter your name before submitting.")
+    elif feedback.strip():
         timestamp = datetime.now().isoformat()
         # Always log locally too, as a backup
-        print(f"[FEEDBACK] {timestamp} :: {feedback}")
+        print(f"[FEEDBACK] {timestamp} :: {tester_name} :: {feedback}")
 
         if feedback_sheet is not None:
             try:
-                feedback_sheet.append_row([timestamp, feedback, live_incident_text])
+                feedback_sheet.append_row([timestamp, tester_name, feedback, live_incident_text])
                 st.success("Thanks! Your feedback has been recorded.")
             except Exception as e:
                 st.error(f"Could not save feedback to sheet: {e}")
