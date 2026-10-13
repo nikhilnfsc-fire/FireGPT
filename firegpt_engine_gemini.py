@@ -140,7 +140,7 @@ class FireGPTEngine:
             })
         return results
 
-    def build_prompt(self, live_incident_text, retrieved, ops_data=None):
+    def build_prompt(self, live_incident_text, retrieved, ops_data=None, *args, **kwargs):
         relevant_incidents = [r for r in retrieved if r.get("is_relevant", True)]
 
         if relevant_incidents:
@@ -243,7 +243,7 @@ End with:
         return prompt
 
 
-    def advise(self, live_incident_text, top_k=TOP_K, ops_data=None):
+    def advise(self, live_incident_text, top_k=TOP_K, ops_data=None, *args, **kwargs):
         retrieved = self.retrieve(live_incident_text, top_k=top_k)
 
         print("=" * 90)

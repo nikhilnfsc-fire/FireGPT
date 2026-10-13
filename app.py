@@ -18,9 +18,12 @@ from datetime import datetime, timedelta
 
 import streamlit as st
 import gspread
+import importlib
 from google.oauth2.service_account import Credentials
 from groq import Groq
 
+import firegpt_engine_gemini
+importlib.reload(firegpt_engine_gemini)
 from firegpt_engine_gemini import FireGPTEngine, GEMINI_MODEL
 
 GROQ_MODEL = "openai/gpt-oss-20b"
@@ -120,8 +123,10 @@ st.set_page_config(page_title="FireGPT — Fire Safety Advisory", page_icon="�
 # ============================================================
 # LOAD ENGINE (cached so it only loads once, not per request)
 # ============================================================
+ENGINE_VERSION = "2.1.2"
+
 @st.cache_resource
-def load_engine():
+def load_engine(version=ENGINE_VERSION):
     api_key = st.secrets.get("GEMINI_API_KEY")
     if not api_key:
         st.error(
@@ -129,10 +134,12 @@ def load_engine():
             "Add it under App settings → Secrets before using this app."
         )
         st.stop()
-    return FireGPTEngine(api_key=api_key)
+    importlib.reload(firegpt_engine_gemini)
+    return firegpt_engine_gemini.FireGPTEngine(api_key=api_key)
 
 
-engine = load_engine()
+engine = load_engine(ENGINE_VERSION)
+
 
 # ============================================================
 # SESSION STATE (per-visitor rate limiting)
@@ -342,9 +349,17 @@ if submit:
 
         with st.spinner("Analyzing incident parameters, matching historical precedents, and synthesizing checkpoints..."):
             retrieved = engine.retrieve(retrieval_query, top_k=top_k)
-            prompt = engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
+            try:
+                prompt = engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
+            except TypeError:
+                # If hot-reloaded process still held a stale cached instance without ops_data
+                st.cache_resource.clear()
+                importlib.reload(firegpt_engine_gemini)
+                fresh_engine = firegpt_engine_gemini.FireGPTEngine(api_key=st.secrets.get("GEMINI_API_KEY"))
+                prompt = fresh_engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
 
             advisory_text, model_used, last_error = generate_advisory(prompt)
+
 
             if advisory_text is None:
                 st.error(
