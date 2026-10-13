@@ -13,7 +13,13 @@
     "suppression_mitigation": "Main electrical power lines were isolated to prevent secondary arc fires. Delhi Police registered a criminal case of culpable homicide and arrested the building owners.",
     "evacuation_rescue": "Emergency responders used ladders and ropes. A local crane operator brought his vehicle to the site and saved over 50 people trapped on the upper floors.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 2,
@@ -29,7 +35,13 @@
     "suppression_mitigation": "Hospital electrical mains and medical gas supplies were shut off to starve the fire. State government ordered a high-level inquiry into safety code violations.",
     "evacuation_rescue": "Rescuers and bystanders smashed glass windows to vent dense smoke. Patients were evacuated through a single narrow emergency exit and ground-floor windows.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 3,
@@ -45,7 +57,13 @@
     "suppression_mitigation": "Power supply isolated; remaining electric vehicles cooled to prevent thermal runaway propagation; police questioned owners over NOC compliance.",
     "evacuation_rescue": "Firefighters deployed hydraulic platforms and turntable ladders to rescue occupants trapped on balconies and upper-floor rooms.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 4,
@@ -61,7 +79,13 @@
     "suppression_mitigation": "Building grid power disconnected; high-expansion foam and smoke blowers deployed to clear internal corridors.",
     "evacuation_rescue": "Snorkel ladders and hydraulic platforms were positioned along outer walls to rescue workers trapped on top storeys; firefighters broke window glass to release smoke.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 5,
@@ -77,7 +101,13 @@
     "suppression_mitigation": "Electrical feeds isolated; staff manually switched patients to standalone portable oxygen cylinders.",
     "evacuation_rescue": "Emergency personnel and medical staff swiftly evacuated ICU and ward patients to adjacent healthcare facilities via fleets of ambulances.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 6,
@@ -93,7 +123,13 @@
     "suppression_mitigation": "Cooking LPG cylinders pulled away from the flames to prevent secondary explosions; temporary shelters set up for displaced families.",
     "evacuation_rescue": "Neighbors and police officers rushed through the informal settlement, waking sleeping residents and pulling families to safety before structures collapsed.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 7,
@@ -109,7 +145,13 @@
     "suppression_mitigation": "Power and medical gas lines isolated; Jharkhand High Court took suo motu cognizance to mandate fire safety reviews.",
     "evacuation_rescue": "Rescue teams used external ladders to enter upper residential rooms and pulled unconscious occupants out for emergency resuscitation.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 8,
@@ -125,7 +167,13 @@
     "suppression_mitigation": "Mains utilities disconnected; Jharkhand High Court ordered a comprehensive statewide residential fire safety audit.",
     "evacuation_rescue": "Firefighters, police, and local residents rescued 18+ people using ladders, stairwell clearings, and rooftop access routes.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 9,
@@ -141,7 +189,13 @@
     "suppression_mitigation": "Cordon established to protect emergency crews from unexploded materials; PESO launched formal technical investigations into structural violations.",
     "evacuation_rescue": "Rescue teams operated heavy earthmovers to clear collapsed concrete slabs and extract trapped factory workers.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 10,
@@ -157,7 +211,13 @@
     "suppression_mitigation": "Drenching deep waste layers with water and chemical foam; placing layers of dirt over smoldering pockets; issuing municipal mask advisories.",
     "evacuation_rescue": "No structural evacuation needed, but medical camps were established; vulnerable residents voluntarily relocated away from toxic smoke zones.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 11,
@@ -173,7 +233,13 @@
     "suppression_mitigation": "Surrounding chemical sheds were cooled with water streams to stop thermal propagation; PESO suspended operating licenses.",
     "evacuation_rescue": "Emergency personnel evacuated workers from adjacent units and rushed critically burned survivors to government hospitals.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 12,
@@ -189,7 +255,13 @@
     "suppression_mitigation": "The burning coach was detached from the rest of the train rake to prevent spread along the platform track.",
     "evacuation_rescue": "Rescuers and passengers smashed coach windows and forced open jammed side doors to extricate trapped occupants.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 13,
@@ -205,7 +277,13 @@
     "suppression_mitigation": "Blanket layer of firefighting foam applied over liquid alcohol pools to cut off vapor ignition; industrial zone power shut off.",
     "evacuation_rescue": "Emergency personnel evacuated neighboring industrial units and conducted search-and-rescue within the gutted factory interior.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 14,
@@ -221,7 +299,13 @@
     "suppression_mitigation": "Fuel tanks were isolated and cooled; Gujarat High Court took suo motu cognizance; SIT arrested 9 owners/officials.",
     "evacuation_rescue": "Hundreds escaped through the ground floor entrance; firefighters cut open collapsed tin roof sheets to recover trapped victims.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 15,
@@ -237,7 +321,13 @@
     "suppression_mitigation": "Unexploded oxygen cylinders safely removed and cooled; electrical grid disconnected; owner and duty doctor arrested.",
     "evacuation_rescue": "Local residents and firefighters climbed ladders and broke rear windows, carrying 12 infants out to safety.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 16,
@@ -253,7 +343,13 @@
     "suppression_mitigation": "Electrical lines and central oxygen manifold shut off immediately; UP government ordered judicial probes.",
     "evacuation_rescue": "Staff and rescuers smashed glass window panes; 37+ infants were successfully evacuated and transferred to adjacent pediatric wards.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 17,
@@ -269,7 +365,13 @@
     "suppression_mitigation": "Leftover chemical dumps cooled to prevent secondary blasts; site cordoned by police for PESO inspection.",
     "evacuation_rescue": "Emergency crews used earthmovers to clear collapsed masonry and pull out injured workers.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 18,
@@ -285,7 +387,13 @@
     "suppression_mitigation": "Unreacted chemical powders neutralized; PESO sealed the facility for operating without mandatory safety gear.",
     "evacuation_rescue": "Survivors fled into open ground; rescue teams extricated burn victims and dispatched them to Sivakasi Government Hospital.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 19,
@@ -301,7 +409,13 @@
     "suppression_mitigation": "Bomb disposal and PESO units cleared unexploded detonators; 9 company directors arrested under culpable homicide charges.",
     "evacuation_rescue": "Heavy machinery lifted concrete slabs to extract victims; DNA matching used to identify severely charred bodies.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 20,
@@ -317,7 +431,13 @@
     "suppression_mitigation": "Gas lines isolated; processing plant sealed by industrial safety inspectors; FIR registered by police.",
     "evacuation_rescue": "82 surviving workers evacuated to open zones; rescue teams recovered injured workers from the destroyed tubing unit.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 21,
@@ -333,7 +453,13 @@
     "suppression_mitigation": "Chemical feed valves shut off; government closed plant for 90 days; special medical teams deployed for DNA identification.",
     "evacuation_rescue": "Over 100 workers fled or were pulled out by emergency crews clearing structural wreckage.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 22,
@@ -349,7 +475,13 @@
     "suppression_mitigation": "Entire sector cordoned by Army, BSF, CRPF, and NDRF; city power/gas lines isolated; AAIB secured CVR/FDR black boxes.",
     "evacuation_rescue": "Rescue teams saved sole aircraft survivor (Seat 11A); evacuated 50+ injured medical students from burning hostel ruins.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 23,
@@ -365,7 +497,13 @@
     "suppression_mitigation": "Area grid power disconnected; neighboring heritage structures cooled continuously to halt fire spread.",
     "evacuation_rescue": "Local shopkeepers and shoppers evacuated through narrow lanes early; no trapped casualties reported.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 24,
@@ -381,7 +519,13 @@
     "suppression_mitigation": "Electricity cut off; building sealed for operating without updated fire safety clearance.",
     "evacuation_rescue": "Firefighters used ladders and smoke extractors to clear staircases and rescue trapped guests from upper windows.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 25,
@@ -397,7 +541,13 @@
     "suppression_mitigation": "Unexploded pyrotechnic materials sprayed with retarding agents; police filed criminal cases under Explosives Act.",
     "evacuation_rescue": "Heavy earthmovers were used to dig through debris and extricate trapped workers.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 26,
@@ -413,7 +563,13 @@
     "suppression_mitigation": "Site cordoned off; PESO safety officers launched investigations into unit safety standards.",
     "evacuation_rescue": "Workers from adjoining sheds were evacuated; injured workers were dispatched to nearby burn centers.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 27,
@@ -429,7 +585,13 @@
     "suppression_mitigation": "Power cut off; Maharashtra government ordered mandatory fire safety audits for all civil hospitals statewide.",
     "evacuation_rescue": "Hospital staff saved 7 infants, but dense smoke blocked entry into the inner ward, resulting in 10 deaths.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 28,
@@ -445,7 +607,13 @@
     "suppression_mitigation": "Power cut off; municipal authorities initiated sealing drives against illegal industrial units in residential areas.",
     "evacuation_rescue": "Firefighters carried unconscious victims down narrow staircases and cut window iron grills to rescue over 60 people.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 29,
@@ -461,7 +629,13 @@
     "suppression_mitigation": "Power isolated; landmark legal battles led to major revisions of National Building Code regulations for public assembly spaces.",
     "evacuation_rescue": "Firefighters broke open locked exit doors and evacuated hundreds of asphyxiated patrons to nearby hospitals.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 30,
@@ -477,7 +651,13 @@
     "suppression_mitigation": "Bomb disposal squads neutralized unexploded pyrotechnics; strict ban enforced on unauthorized competitive fireworks displays.",
     "evacuation_rescue": "Local residents, NDRF, and emergency services cleared concrete rubble with JCBs to rescue hundreds of trapped victims.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 31,
@@ -493,7 +673,13 @@
     "suppression_mitigation": "Central AC system turned off; hospital license canceled and board members arrested for negligence.",
     "evacuation_rescue": "Local youths scaled building pipes and broke window glasses; firefighters used hydraulic sky-ladders to evacuate patients.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 32,
@@ -509,7 +695,13 @@
     "suppression_mitigation": "Power supply isolated; landmark judicial commission established strict guidelines for temporary public gathering structures.",
     "evacuation_rescue": "Local citizens broke through boundary walls; survivors were transported in private trucks and cars to hospitals in Sirsa, Bathinda, and Punjab.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 33,
@@ -525,7 +717,13 @@
     "suppression_mitigation": "Complete policy ban imposed on thatched roofs in schools nationwide; strict NBC compliance enforced for educational institutions.",
     "evacuation_rescue": "Local residents and teachers smashed brick walls and windows, pulling dozens of children out before the burning roof collapsed.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "id": 34,
@@ -541,7 +739,13 @@
     "suppression_mitigation": "Power cut off; ban enforced on synthetic enclosed trade fair structures lacking multi-point emergency exits.",
     "evacuation_rescue": "Trapped visitors used keys and pocket knives to cut open synthetic tent walls; rescuers carried severe burn victims to Meerut Medical College.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 35,
@@ -557,7 +761,13 @@
     "suppression_mitigation": "Mains power supply isolated; structural stability testing conducted; criminal charges filed against building owners.",
     "evacuation_rescue": "Firefighters rescued dozens using hydraulic skylifts and fire escapes, though locked doors hindered roof evacuation.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 36,
@@ -573,7 +783,13 @@
     "suppression_mitigation": "Building sealed for safety violations, inspiring the establishment of civic fire safety advocacy groups (Beyond Carlton).",
     "evacuation_rescue": "Firefighters used turntable ladders to rescue over 60 people from windows; bystanders used bedsheets and cushions to catch jumpers.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 37,
@@ -589,7 +805,13 @@
     "suppression_mitigation": "Statewide shutdown and audit ordered for all private coaching centers in Gujarat; negligent fire officials suspended and builders arrested.",
     "evacuation_rescue": "Hydraulic platforms rescued students; local bystanders caught students jumping from upper windows using makeshift nets and ladders.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "id": 38,
@@ -605,7 +827,13 @@
     "suppression_mitigation": "Delhi Government revoked fire NOCs for hotels with illegal rooftop kitchens or combustible fiber structures.",
     "evacuation_rescue": "Hydraulic platforms rescued 35 guests through upper windows; firefighters broke through locked doors to extract trapped survivors.",
     "source_type": "domestic_india",
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 9,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Light night traffic; rapid fire station turnout",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Growth stage; localized to initial compartment/floor"
   },
   {
     "title": "Grenfell Tower Fire (United Kingdom)",
@@ -621,7 +849,13 @@
     "evacuation_rescue": "Evacuation was severely delayed by dispatcher adherence to a standard 'Stay Put' policy for over two hours after compartmentation breached. 223 occupants escaped independently or were pulled out by firefighters through dense, smoke-filled stairwells before visibility dropped to zero.",
     "source_type": "international_reference",
     "id": 39,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Lahaina Wildfire (United States)",
@@ -637,7 +871,13 @@
     "evacuation_rescue": "Emergency sirens were never activated to alert residents. Evacuation routes became bottlenecked on the single coastal highway, forcing dozens of trapped citizens to jump into the Pacific Ocean, where they were rescued by the U.S. Coast Guard and civilian boats.",
     "source_type": "international_reference",
     "id": 40,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Kiss Nightclub Fire (Brazil)",
@@ -653,7 +893,13 @@
     "evacuation_rescue": "Security guards initially locked the primary exit doors to prevent unpaid bar tabs before realizing the severity of the fire. Overcrowding caused a massive bottleneck crush at the single main exit door, while over 100 disoriented victims died inside restrooms after mistaking them for emergency exits.",
     "source_type": "international_reference",
     "id": 41,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Tianjin Port Explosions & Fire (China)",
@@ -669,7 +915,13 @@
     "evacuation_rescue": "Shockwaves flattened surrounding structures, forcing immediate mass evacuations within a 3-kilometer radius. Military Nuclear, Biological, and Chemical (NBC) teams executed specialized search-and-rescue operations to isolate cyanide contamination.",
     "source_type": "international_reference",
     "id": 42,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "The Station Nightclub Fire (United States)",
@@ -685,7 +937,13 @@
     "evacuation_rescue": "Over two-thirds of the 462 patrons rushed toward the narrow front entrance corridor through which they entered. A severe bottleneck occurred at the front door, creating a crowd crush that trapped people in the doorway as thermal conditions deteriorated.",
     "source_type": "international_reference",
     "id": 43,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Usindiso Building Fire (South Africa)",
@@ -701,7 +959,13 @@
     "evacuation_rescue": "Escape routes were physically blocked by locked metal security gates installed by local syndicates. Multiple occupants jumped from 3rd and 4th-floor windows to escape the flames, while firefighters rescued trapped survivors via external turntable ladders.",
     "source_type": "international_reference",
     "id": 44,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Qaraqosh Wedding Hall Fire (Iraq)",
@@ -717,7 +981,13 @@
     "evacuation_rescue": "Management disconnected the central electrical breaker during panic, plunging 1,000+ patrons into total darkness. Evacuation was severely bottlenecked by narrow exit doors; emergency crews eventually used bulldozers to punch holes through exterior walls to rescue survivors.",
     "source_type": "international_reference",
     "id": 45,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Campanar High-Rise Fire (Spain)",
@@ -733,7 +1003,13 @@
     "evacuation_rescue": "Early responding firefighters conducted rapid door-to-door notifications, saving the vast majority of residents before corridors filled with smoke. Firefighters used crane-mounted aerial platforms to perform high-risk balcony rescues of trapped occupants on upper floors.",
     "source_type": "international_reference",
     "id": 46,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Notre-Dame Cathedral Fire (France)",
@@ -749,7 +1025,13 @@
     "evacuation_rescue": "Security guards successfully cleared all tourists and clergy from the cathedral floor upon the second alarm. Firefighters executed a high-risk interior defense inside the stone bell towers, preventing the collapse of the heavy bronze bells and saving the main facade.",
     "source_type": "international_reference",
     "id": 47,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Mangaf Building Fire (Kuwait)",
@@ -765,7 +1047,13 @@
     "evacuation_rescue": "The single exit door to the roof was padlocked, trapping occupants on the upper stairwell landings. Most victims died from toxic smoke inhalation in their sleep or in corridors while attempting to find an open escape route.",
     "source_type": "international_reference",
     "id": 48,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Nanjing Residential Building Fire (China)",
@@ -781,7 +1069,13 @@
     "evacuation_rescue": "Thick smoke rendered common interior stairwells impassable. Firefighters rescued dozens of residents using smoke masks and ladder trucks, while occupants on upper floors were advised to seal their doors and wait for rescue.",
     "source_type": "international_reference",
     "id": 49,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Joelma Building Fire (Brazil)",
@@ -797,7 +1091,13 @@
     "evacuation_rescue": "Hundreds fled to the rooftop, but the building lacked a proper helipad, preventing air rescues due to intense heat and turbulence. Dozens of trapped occupants leaped from upper-floor windows before firefighters could deploy rescue nets.",
     "source_type": "international_reference",
     "id": 50,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Daegu Subway Fire (South Korea)",
@@ -813,7 +1113,13 @@
     "evacuation_rescue": "The driver of the second train pulled the master key upon evacuating, locking the doors and trapping passengers inside burning cars. Station emergency lighting failed, forcing victims to feel along walls in complete darkness to find exits.",
     "source_type": "international_reference",
     "id": 51,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Great Chicago Fire (United States)",
@@ -829,7 +1135,13 @@
     "evacuation_rescue": "Over 100,000 citizens fled toward open spaces in Lincoln Park and the shores of Lake Michigan. Rescue operations were decentralized, carried out primarily by citizens and horse-drawn civilian transports.",
     "source_type": "international_reference",
     "id": 52,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Triangle Shirtwaist Factory Fire (United States)",
@@ -845,7 +1157,13 @@
     "evacuation_rescue": "The single exterior metal fire escape collapsed under the weight of fleeing workers. Trapped by locked doors and advancing flames, 62 workers jumped from 8th and 9th-floor windows to the sidewalk below.",
     "source_type": "international_reference",
     "id": 53,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Cocoanut Grove Fire (United States)",
@@ -861,7 +1179,13 @@
     "evacuation_rescue": "The main exit was a single revolving door that quickly jammed under the pressure of panicked crowds, creating a pileup behind it. Alternative exit doors were locked, bolted, or hidden behind decorative wall drapes.",
     "source_type": "international_reference",
     "id": 54,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Hartford Circus Fire (United States)",
@@ -877,7 +1201,13 @@
     "evacuation_rescue": "Egress corridors were blocked by heavy iron animal cages positioned in the entry chutes. Panicked spectators tumbled off high wooden bleachers while trying to drop under the tent walls to safety.",
     "source_type": "international_reference",
     "id": 55,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "L'Innovation Department Store Fire (Belgium)",
@@ -893,7 +1223,13 @@
     "evacuation_rescue": "Shoppers became disoriented in the maze-like floor layouts without clear emergency exit signage. Dozens jumped from upper-storey windows onto glass awnings or street pavement before rescue ladders could be positioned.",
     "source_type": "international_reference",
     "id": 56,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Our Lady of the Angels School Fire (United States)",
@@ -909,7 +1245,13 @@
     "evacuation_rescue": "Ground-floor occupants evacuated safely, but 2nd-floor students were cut off by dense smoke in the hallway. Teachers kept students in classrooms until rescue, but many jumped from 2nd-floor windows before ladder trucks arrived.",
     "source_type": "international_reference",
     "id": 57,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Beverly Hills Supper Club Fire (United States)",
@@ -925,7 +1267,13 @@
     "evacuation_rescue": "Evacuation alerts were delayed while staff attempted to fight the fire independently. Patrons in the overcrowded Cabaret Room crowded into narrow exit corridors, resulting in lethal crushing at exit doors.",
     "source_type": "international_reference",
     "id": 58,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 24,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Severe peak-hour congestion; tenders held up in dense traffic gridlock",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Fully Developed / Flashover breached; multi-compartment structural involvement"
   },
   {
     "title": "MGM Grand Hotel Fire (United States)",
@@ -941,7 +1289,13 @@
     "evacuation_rescue": "Stairwell doors locked automatically from the inside for security, trapping fleeing guests in smoke-filled vertical shafts. Over 300 occupants were rescued from the roof using military and civilian helicopters.",
     "source_type": "international_reference",
     "id": 59,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "King's Cross Station Fire (United Kingdom)",
@@ -957,7 +1311,13 @@
     "evacuation_rescue": "Station staff lacked formal fire emergency training, leading to delayed underground evacuations. Commuters walking up into the ticket hall were engulfed by the sudden explosion of flames coming up the escalator shaft.",
     "source_type": "international_reference",
     "id": 60,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Piper Alpha Oil Rig Disaster (United Kingdom)",
@@ -973,7 +1333,13 @@
     "evacuation_rescue": "Heat and smoke destroyed the central radio room and helideck early in the event, preventing organized evacuation. Survival depended on workers jumping over 30 meters into the icy North Sea to be picked up by fast rescue craft.",
     "source_type": "international_reference",
     "id": 61,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Happy Land Nightclub Fire (United States)",
@@ -989,7 +1355,13 @@
     "evacuation_rescue": "With the primary wooden stairwell ablaze, patrons on the 2nd floor were cut off from escape. Smoke inhalation caused rapid unconsciousness, resulting in 87 fatalities within minutes.",
     "source_type": "international_reference",
     "id": 62,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Lame Horse Nightclub Fire (Russia)",
@@ -1005,7 +1377,13 @@
     "evacuation_rescue": "Patrons rushed toward the single main exit door, causing a severe bottleneck crush. Secondary emergency exits were concealed behind stage scenery or locked shut, trapping over half the occupants inside.",
     "source_type": "international_reference",
     "id": 63,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Shanghai High-Rise Building Fire (China)",
@@ -1021,7 +1399,13 @@
     "evacuation_rescue": "Scaffolding mesh blocked apartment windows, preventing ventilation and trapping occupants inside. Firefighters used rooftop helicopters and turntable ladders to rescue survivors who managed to reach upper levels.",
     "source_type": "international_reference",
     "id": 64,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Tazreen Fashions Factory Fire (Bangladesh)",
@@ -1037,7 +1421,13 @@
     "evacuation_rescue": "Managers ordered workers to remain at their sewing machines, claiming the fire alarm was a false drill. Exit doors on upper floors were padlocked to prevent theft, forcing workers to break windows and jump to survive.",
     "source_type": "international_reference",
     "id": 65,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Ali Enterprises Garment Factory Fire (Pakistan)",
@@ -1053,7 +1443,13 @@
     "evacuation_rescue": "Emergency exit doors were locked shut by management, leaving only one narrow exit door open. The single exit became blocked by fire, trapping hundreds of workers on upper floors who succumbed to toxic fumes.",
     "source_type": "international_reference",
     "id": 66,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Colectiv Nightclub Fire (Romania)",
@@ -1069,7 +1465,13 @@
     "evacuation_rescue": "The venue had only one functional single-leaf exit door unlocked, while the secondary door leaf remained bolted shut. A severe crowd crush occurred at the exit, trapping occupants in dense toxic smoke.",
     "source_type": "international_reference",
     "id": 67,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Oakland Ghost Ship Fire (United States)",
@@ -1085,7 +1487,13 @@
     "evacuation_rescue": "Egress from the 2nd floor was limited to a single makeshift staircase built from wooden shipping pallets. The staircase quickly burned away and filled with dense smoke, cutting off escape for patrons attending a musical event.",
     "source_type": "international_reference",
     "id": 68,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Winter Cherry Shopping Centre Fire (Russia)",
@@ -1101,7 +1509,13 @@
     "evacuation_rescue": "Fire doors to multiple movie auditoriums were locked from the outside, trapping moviegoers. Public address notifications were never issued, delaying evacuation until corridors were fully smoke-logged.",
     "source_type": "international_reference",
     "id": 69,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Camp Fire (United States)",
@@ -1117,7 +1531,13 @@
     "evacuation_rescue": "Evacuation orders were hindered by burning cell towers and jammed single-lane exit roads. Emergency personnel conducted evacuations while navigating through fallen power lines and burning vehicles.",
     "source_type": "international_reference",
     "id": 70,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Beirut Port Explosion & Fire (Lebanon)",
@@ -1133,7 +1553,13 @@
     "evacuation_rescue": "The blast wave destroyed surrounding urban neighborhoods, creating thousands of severe trauma casualties. Emergency medical response was handled by military units, civilian volunteers, and international urban search team operations.",
     "source_type": "international_reference",
     "id": 71,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Gothenburg Nightclub Fire (Sweden)",
@@ -1149,7 +1575,13 @@
     "evacuation_rescue": "With the rear emergency exit blocked by the arson fire, fleeing patrons surged toward the single main entrance door, causing a severe crowd crush. Dozens broke high, narrow windows to jump to safety.",
     "source_type": "international_reference",
     "id": 72,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Kaprun Funicular Fire (Austria)",
@@ -1165,7 +1597,13 @@
     "evacuation_rescue": "Trapped passengers were unable to open the sealed hydraulic train doors until a survivor smashed a reinforced window. The 12 passengers who evacuated downward past the fire survived, while all passengers who fled upward died from smoke drawn up the tunnel's natural chimney draft.",
     "source_type": "international_reference",
     "id": 73,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Santika Club Fire (Thailand)",
@@ -1181,7 +1619,13 @@
     "evacuation_rescue": "Public egress was restricted to a single main entrance door that opened inward, creating a lethal bottleneck as hundreds of fleeing patrons surged forward in total darkness.",
     "source_type": "international_reference",
     "id": 74,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 14,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Moderate night traffic; street parked two-wheelers obstructing approach",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "No functional street hydrants; long hose line relay (150-250m) from main road",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Windsor Tower Fire (Spain)",
@@ -1197,7 +1641,13 @@
     "evacuation_rescue": "Because the fire broke out late on a weekend evening, the building was largely empty. Security staff evacuated the few remaining occupants before smoke filled the central core stairwells.",
     "source_type": "international_reference",
     "id": 75,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Garley Building Fire (Hong Kong)",
@@ -1213,7 +1663,13 @@
     "evacuation_rescue": "Building occupants ignored initial fire alarms due to ongoing maintenance testing. Firefighters used snorkel ladders to pull trapped survivors from upper-floor windows as interior hallways burned.",
     "source_type": "international_reference",
     "id": 76,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Los Alfaques Tanker Disaster (Spain)",
@@ -1229,7 +1685,13 @@
     "evacuation_rescue": "The sudden thermal blast wave left no time for evacuation. Immediate rescue operations were performed by surviving campers, local residents, and private vehicles transporting burn victims to regional hospitals.",
     "source_type": "international_reference",
     "id": 77,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Dupont Plaza Hotel Fire (Puerto Rico)",
@@ -1245,7 +1707,13 @@
     "evacuation_rescue": "Guests inside the casino were trapped when flashover blew out interior partition glass. Hundreds fled to the rooftop and balconies, where commercial and military helicopters airlifted them to safety.",
     "source_type": "international_reference",
     "id": 78,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Animation coaching centre-cum-library above shops in a three-storey commercial building — Lucknow",
@@ -1261,7 +1729,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 79,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Firecracker factory — Jaipur",
@@ -1277,7 +1751,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 80,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Prasad Hospital ICU (private hospital) — Muzaffarpur",
@@ -1293,7 +1773,13 @@
     "evacuation_rescue": "Hospital staff, aided by local residents, broke windows to pull trapped patients out of the smoke-filled ICU — a manual, improvised evacuation method used because normal escape routes were compromised by smoke. Firefighters personally carried out around 15-20 patients despite intense smoke exposure. Around 20-22 ICU patients were evacuated in total and the remaining hospital patients were shifted to nearby facilities as a precaution.",
     "source_type": "domestic_india_nissmat",
     "id": 81,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Flourish Stay bed-and-breakfast hotel — New Delhi",
@@ -1309,7 +1795,13 @@
     "evacuation_rescue": "The building had only a single staircase and no alternative escape routes, which trapped many occupants once smoke filled the corridors. Several people jumped from upper floors in desperation. Around 10 police personnel were injured while entering the smoke-filled building to physically pull survivors out. More than 40 people were rescued despite the structural evacuation failure — illustrating that manual room-to-room rescue by responders compensated substantially for the complete absence of planned escape infrastructure.",
     "source_type": "domestic_india_nissmat",
     "id": 82,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Four-storey residential building B-13 Vivek Vihar Phase-I — Delhi",
@@ -1325,7 +1817,13 @@
     "evacuation_rescue": "Evacuation was severely hampered by three compounding structural failures: (1) a massive iron security grille covering a major section of the building's front blocked rescuer entry/occupant exit, (2) the building had only a single point of entry and exit, and (3) electronic door locks — including the lock on the door to the roof — jammed, trapping some residents on floors above the fire with no secondary escape route, contributing to deaths by smoke inhalation. Firefighters rescued everyone from front-facing flats but were unable to reach several rear-side residents in time. The incident occurred at dawn (3:47 am), when residents were asleep and slowest to react.",
     "source_type": "domestic_india_nissmat",
     "id": 83,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Vanaja fireworks factory — Kattanarpatti near Virudhunagar",
@@ -1341,7 +1839,13 @@
     "evacuation_rescue": "With ~30 workers on site at the time, rescue was primarily body/survivor recovery from debris rather than a live evacuation, since the explosion's suddenness gave workers no warning. The region's chronic accident pattern (134 deaths in Virudhunagar district firecracker units since 2022 alone) points to systemic non-adherence to PESO (Petroleum and Explosives Safety Organisation) safety norms as the real root-cause mitigation gap, rather than any single incident's response failure.",
     "source_type": "domestic_india_nissmat",
     "id": 84,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "SCB Medical College and Hospital trauma care unit (first floor) — Cuttack",
@@ -1357,7 +1861,13 @@
     "evacuation_rescue": "All 23 patients on the first-floor trauma care ICU were evacuated and shifted to other departments (critically ill patients specifically moved to the New Medicine ICU), and this evacuation was executed successfully enough that zero additional deaths occurred beyond the initial incident. 11 hospital staff and security personnel sustained burn injuries directly from physically carrying out patients during the rescue — highlighting that staff willingness to physically intervene (even at personal injury risk) was the decisive factor separating this outcome from ICU fires elsewhere with far higher tolls.",
     "source_type": "domestic_india_nissmat",
     "id": 85,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Warehouse complex — Kolkata",
@@ -1373,7 +1883,13 @@
     "evacuation_rescue": "The central failure was a complete lack of evacuation routes: police investigation specifically focused on why workers sleeping inside were unable to escape, given the fire started before dawn while people slept. No safe-refuge or emergency-exit system existed at either warehouse; workers were burned before they could react, with over 27 people initially reported missing and remains only identifiable via DNA testing due to the fire's severity and duration — indicating this was fundamentally an evacuation-infrastructure failure (no exits, no fire-safe sleeping/storage separation) rather than a firefighting-response failure.",
     "source_type": "domestic_india_nissmat",
     "id": 86,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Birch by Romeo Lane nightclub — Arpora",
@@ -1389,7 +1905,13 @@
     "evacuation_rescue": "The fire began on the first floor where congestion and narrow exits trapped occupants; a portion of the more than 100 people on the dance floor fled toward the kitchen area to escape, only to become trapped there along with kitchen staff. Most victims (20 of 25) were club staff members caught in the kitchen/basement area rather than patrons — indicating that in a fire, staff working in back-of-house areas (kitchens, storage) face materially higher risk than customers in open floor areas, since they are furthest from primary exits and closest to the ignition source.",
     "source_type": "domestic_india_nissmat",
     "id": 87,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Private sleeper bus (V Kaveri Travels) NH-44 — Kurnool",
@@ -1405,7 +1927,13 @@
     "evacuation_rescue": "With the main door (near the driver's cabin) jammed and blocked by fire almost immediately, roughly 12-21 surviving passengers escaped only by breaking open the rear emergency exit windows themselves. Passengers seated in the middle and rear of the bus, and those still asleep at the 3:30 am impact time, had far lower survival odds than those near the emergency exit — underscoring that in vehicle fires, the single greatest survival factor is proximity to a *usable* (non-jammed) exit, not any firefighting response, since the entire event concluded in minutes before external help could meaningfully intervene.",
     "source_type": "domestic_india_nissmat",
     "id": 88,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Private AC sleeper bus — Jaisalmer",
@@ -1421,7 +1949,13 @@
     "evacuation_rescue": "The single automatic emergency door became jammed by the fire/heat almost immediately, and the bus had no window hammers or secondary emergency exits — forcing Army personnel to physically pry the door open while some passengers broke windows to escape. Investigators found most bodies piled in the aisle, indicating passengers attempted to reach the door but could not escape in time once it jammed. This is the same failure pattern as the Kurnool bus fire: single-exit dependency with no backup egress is catastrophic in vehicle fires.",
     "source_type": "domestic_india_nissmat",
     "id": 89,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Neuro ICU Trauma Centre, SMS Government Hospital — Jaipur",
@@ -1437,7 +1971,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 90,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Mixed-use building — Hyderabad",
@@ -1453,7 +1993,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 91,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Rituraj Hotel, Falpatti Machhua area, Burrabazar — Kolkata",
@@ -1469,7 +2015,13 @@
     "evacuation_rescue": "With interior escape routes compromised, guests fled to the rooftop or clung to narrow window ledges; firefighters used hydraulic ladders to reach and rescue people stranded on ledges, and used megaphones/loudspeakers to calm panicking guests on the roof and ledges and instruct them to wait for rescue rather than attempt a risky jump — at least one person died after jumping regardless. This combination (hydraulic ladder extraction + active verbal crowd-calming) is a directly reusable tactic for any high-rise fire where occupants become stranded on external ledges or rooftops.",
     "source_type": "domestic_india_nissmat",
     "id": 92,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Illegal firecracker warehouse-cum-factory (Deepak Fireworks unit) — Deesa",
@@ -1485,7 +2037,13 @@
     "evacuation_rescue": "The blast was powerful enough to send workers' body parts 200-300 metres away and caused the RCC roof slab to collapse onto workers below. Tragically, several victims were family members of workers who lived on the warehouse premises — including 8 children among the 21 dead — meaning there was no separation between hazardous storage/production areas and worker housing, removing any possibility of evacuating dependents who were not even meant to be present during working hazardous operations.",
     "source_type": "domestic_india_nissmat",
     "id": 93,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Ordnance Factory Bhandara explosives/ammunition-filling unit — Bhandara",
@@ -1501,7 +2059,13 @@
     "evacuation_rescue": "Of an estimated 13-14 workers in the unit at the time, several were rescued in stages as NDRF worked through the collapsed debris with specialized equipment; injured workers were shifted to hospitals in both Nagpur and Bhandara for treatment, splitting casualty load across two cities' medical capacity to avoid overwhelming a single facility.",
     "source_type": "domestic_india_nissmat",
     "id": 94,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Tent camps at Maha Kumbh Mela grounds, Sangam area — Prayagraj",
@@ -1517,7 +2081,13 @@
     "evacuation_rescue": "Police and administration teams evacuated surrounding tents as a precaution once the fire began spreading; the affected area was fully cordoned off. Zero casualties were reported despite 18 tents being destroyed — a notable success outcome directly attributed to the extremely dense pre-positioned fire response network rather than to evacuation drills or occupant preparedness.",
     "source_type": "domestic_india_nissmat",
     "id": 95,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "LPG tanker-truck collision and fireball on national highway; around 40 vehicles engulfed — Jaipur",
@@ -1533,7 +2103,13 @@
     "evacuation_rescue": "Many victims, including sleeper-bus passengers and nearby workers, were unable to escape because the gas ignited and spread as a fireball too quickly for evacuation once the leak began — several eyewitnesses described people catching fire and being unable to remove burning clothing in time. This underscores that once an LPG leak ignites into open flame, there is effectively no evacuation window for people already within the gas-spread radius; the only real mitigation is preventing people/vehicles from entering that radius during the leak phase, before ignition.",
     "source_type": "domestic_india_nissmat",
     "id": 96,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Escientia Advanced Sciences pharmaceutical plant — Atchutapuram",
@@ -1549,7 +2125,13 @@
     "evacuation_rescue": "The explosion occurred at 2:15 pm during the lunch break, when a large portion of the plant's ~380 two-shift workforce was away from their workstations — this timing coincidence significantly reduced what could have been a much higher casualty count. This underscores an important, non-obvious mitigation principle: shift scheduling and break-period staffing density directly affects worst-case casualty exposure in industrial hazard zones, independent of any active safety system.",
     "source_type": "domestic_india_nissmat",
     "id": 97,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Amudan Chemicals Pvt Ltd, MIDC Phase 2 — Dombivli",
@@ -1565,7 +2147,13 @@
     "evacuation_rescue": "Workers in FOUR SEPARATE neighboring factories were injured by the blast's shockwave and shrapnel despite not working at the source facility — meaning the incident's danger radius extended well beyond the originating plant's boundary. Eight people trapped on the premises were specifically rescued during the response, indicating some workers were unable to self-evacuate before or during the explosion sequence.",
     "source_type": "domestic_india_nissmat",
     "id": 98,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Hotel Pal (fire spread to adjacent Hotel Amit) near Patna Junction — Patna",
@@ -1581,7 +2169,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 99,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Fireworks factory Kundayiruppu village — Vembakottai",
@@ -1597,7 +2191,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 100,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Paint factory with attached chemical storage — Delhi",
@@ -1613,7 +2213,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 101,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Firecracker manufacturing factory — Harda",
@@ -1629,7 +2235,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 102,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Two fireworks manufacturing units — Virudhunagar district",
@@ -1645,7 +2257,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 103,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Jay Bhavani building, seven-storey SRA residential building near Azad Maidan — Mumbai",
@@ -1661,7 +2279,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 104,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Firecracker storage godown; blast also destroyed adjoining houses and shops — Krishnagiri",
@@ -1677,7 +2301,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 105,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Private sleeper bus (Vidarbha Travels) caught fire on expressway — Buldhana",
@@ -1693,7 +2323,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 106,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Multi-storey building housing coaching centres (~200-250 students) — Delhi",
@@ -1709,7 +2345,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 107,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Satpura Bhawan state government office complex — Bhopal",
@@ -1725,7 +2367,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 108,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Illegal firecracker factory run from residential building, Khadikul village — Egra",
@@ -1741,7 +2389,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 109,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Durga Puja pandal fire during Saptami celebrations — Narthuwa village",
@@ -1757,7 +2411,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 110,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Hotel Levana Suites, Madan Mohan Malviya Marg — Lucknow",
@@ -1773,7 +2433,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 111,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Ruhi Industries factory unit (licensed for electronic goods) — Hapur",
@@ -1789,7 +2455,13 @@
     "evacuation_rescue": "33 workers were present at the time; injured were dispersed across hospitals in four different cities for treatment, suggesting local medical capacity was quickly overwhelmed. Most victims were migrant workers from other states (Uttar Pradesh's Shahjahanpur and Bihar) who were reportedly living in shanties in Hapur — highlighting that migrant industrial workforces are frequently housed in informal, under-inspected settings near hazardous worksites with no organized evacuation planning for either the workplace or the workers' residences.",
     "source_type": "domestic_india_nissmat",
     "id": 112,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Scrap godown at Bhoiguda; migrant workers sleeping on first floor — Secunderabad",
@@ -1805,7 +2477,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 113,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Village houses in Bogtui, ~10 houses set ablaze — Bogtui village",
@@ -1821,7 +2499,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 114,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Kamala Building, 20-storey residential high-rise near Bhatia Hospital, fire on 18th floor — Mumbai",
@@ -1837,7 +2521,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 115,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Special Newborn Care Unit, Kamla Nehru Children's Hospital — Bhopal",
@@ -1853,7 +2543,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 116,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "ICU of district civil hospital (government COVID-19 facility) — Ahmednagar",
@@ -1869,7 +2565,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 117,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "COVID-19 ward of Patel Welfare Hospital (four-storeyed private hospital) — Bharuch",
@@ -1885,7 +2587,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 118,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Prime Criticare Hospital, private COVID-19 hospital — Mumbra",
@@ -1901,7 +2609,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 119,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "ICU of Vijay Vallabh Hospital (COVID-19 hospital) — Virar",
@@ -1917,7 +2631,13 @@
     "evacuation_rescue": "Of 90 total patients (18 in the ICU itself), 21 patients including those in critical condition were evacuated and shifted to other hospitals; 5 survivors from the ICU specifically were also relocated. The fact that COVID-19 patients — many on oxygen support or ventilators — required physical relocation mid-fire to other facilities highlights that ICU/critical-care fire evacuation is fundamentally different from general evacuation: patients cannot self-evacuate and require simultaneous equipment (oxygen, monitors) transfer, not just physical movement.",
     "source_type": "domestic_india_nissmat",
     "id": 120,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Well Treat Hospital, COVID-19 hospital — Nagpur",
@@ -1933,7 +2653,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 121,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Sunrise Hospital, COVID-19 facility inside Dreams Mall — Mumbai",
@@ -1949,7 +2675,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 122,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "New Koilaghat building (Eastern Railway offices), Strand Road, fire on 13th floor — Kolkata",
@@ -1965,7 +2697,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 123,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Firecracker factory licensed to manufacture fancy crackers — Sattur",
@@ -1981,7 +2719,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 124,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Under-construction building at Serum Institute of India's Manjri campus — Pune",
@@ -1997,7 +2741,13 @@
     "evacuation_rescue": "All five fatalities were contract workers (from a construction sub-contractor, not the pharmaceutical company itself) who were on the upper floors near the ignition point when the fire started; several other workers were evacuated successfully from the same building before smoke/heat cut off the upper floors. This illustrates a recurring industrial-site pattern: contract/sub-contractor workers doing hot-work or finishing work on upper floors of a still-under-construction building are often the last to be accounted for and evacuated, since they are not part of the main facility's regular headcount or fire-drill procedures.",
     "source_type": "domestic_india_nissmat",
     "id": 125,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Uday Shivanand Hospital, Mavdi area (COVID-19 hospital, fire in ICU around 1am) — Rajkot",
@@ -2013,7 +2763,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 126,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "City Centre Mall level-5 blaze burned over a day; ~3500 residents evacuated — Mumbai",
@@ -2029,7 +2785,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 127,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Srisailam Left Bank underground hydroelectric power station (900 MW) — Srisailam",
@@ -2045,7 +2807,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 128,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Hotel Swarna Palace, used as COVID-19 care centre by Ramesh Hospitals — Vijayawada",
@@ -2061,7 +2829,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 129,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Shrey Hospital, Navrangpura (50-bed COVID-19 hospital, fire in ICU) — Ahmedabad",
@@ -2077,7 +2851,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 130,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "NLC India Ltd Thermal Power Station-II, Unit 5 — Neyveli",
@@ -2093,7 +2873,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 131,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Oil India Limited Baghjan oilfield, Well No.5 — Baghjan",
@@ -2109,7 +2895,13 @@
     "evacuation_rescue": "Nearly 2,000 residents living near the well were evacuated to relief camps within the first days of the blowout (before the fire even started), and this evacuation zone was later expanded to a 1.5 km radius once the fire ignited. This early, precautionary, pre-fire evacuation based on gas leak alone (rather than waiting for ignition) is the key transferable lesson: for any hydrocarbon well/pipeline leak, evacuation should begin at the leak-detection stage, not after fire starts, since ignition timing is unpredictable and the population needs lead time to relocate before a explosion/fire event.",
     "source_type": "domestic_india_nissmat",
     "id": 132,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Yashashvi Rasayan Pvt Ltd chemical plant, Dahej industrial estate — Dahej",
@@ -2125,7 +2917,13 @@
     "evacuation_rescue": "Administration proactively evacuated approximately 4,800 residents from two nearby villages (Lakhi and Luvara) specifically due to the release of poisonous chemicals in the smoke, not just fire risk — showing that industrial chemical fires require evaluating airborne toxic exposure risk for surrounding communities as a distinct evacuation trigger, separate from the immediate blast/fire zone around the facility itself.",
     "source_type": "domestic_india_nissmat",
     "id": 133,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "NLC India Ltd Thermal Power Station-II, Unit 6 — Neyveli",
@@ -2141,7 +2939,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 134,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Nandan Denim garment/denim factory — Ahmedabad",
@@ -2157,7 +2961,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 135,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Battery factory/godown in Peera Garhi — Delhi",
@@ -2173,7 +2983,13 @@
     "evacuation_rescue": "Not documented in this source. The NISSMAT registry records incident facts, cause, and casualty figures but not the operational suppression/mitigation/evacuation actions taken during response.",
     "source_type": "domestic_india_nissmat",
     "id": 136,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Miryang Sejong Hospital Fire (South Korea)",
@@ -2189,7 +3005,13 @@
     "evacuation_rescue": "Critical split in outcome: all 94 elderly patients in the adjacent nursing-hospital wing were evacuated safely, some carried out on firefighters' backs — a full-evacuation success. In contrast, the main hospital's ICU/ER wing (where most patients had limited mobility) suffered the bulk of the deaths; 111 surviving patients and staff were transferred to six nearby hospitals.",
     "source_type": "international_reference",
     "id": 137,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Baghdad Ibn al-Khatib Hospital Fire (Iraq)",
@@ -2205,7 +3027,13 @@
     "evacuation_rescue": "Chaotic evacuation: patients and staff jumped from windows to escape; relatives outside reported being told loved ones were 'being evacuated' but many did not make it out. Investigation afterward cited overcrowding (roughly 4x ward capacity) as a major factor limiting evacuation speed.",
     "source_type": "international_reference",
     "id": 138,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 14,
+    "road_condition": "Narrow congested lane (< 3m); overhead dangling wires; tender access restricted",
+    "traffic_condition": "Moderate night traffic; street parked two-wheelers obstructing approach",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Hospital internal hydrant dry/defective; tenders supplied via relay pumping",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "República Cromañón Nightclub Fire (Argentina)",
@@ -2221,7 +3049,13 @@
     "evacuation_rescue": "Evacuation catastrophically failed: at least 4 of the venue's 6 exits were found locked or padlocked (reportedly to stop people entering without paying), funneling the panicked crowd toward one narrow open exit. This is considered the single largest contributor to the death toll — a stampede formed against locked/blocked doors.",
     "source_type": "international_reference",
     "id": 139,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 12,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Clear roads; delayed call dispatch due to late reporting",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Kader Toy Factory Fire (Thailand)",
@@ -2237,7 +3071,13 @@
     "evacuation_rescue": "Ground-floor exit doors were found locked (reportedly a standing policy to prevent theft of stock), trapping workers as stairwells collapsed. In a stark contrast, fire alarms in some other buildings on the same site did sound, allowing those workers to escape before flames spread to their sections — illustrating how a single working alarm and unlocked doors was the difference between escape and death within the same industrial complex.",
     "source_type": "international_reference",
     "id": 140,
-    "hazard_category": "structural_fire"
+    "hazard_category": "structural_fire",
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "2016 Uttarakhand Forest Fires (India)",
@@ -2253,7 +3093,13 @@
     "evacuation_rescue": "No mass human evacuation was required as the fires were in forested/hill terrain away from dense settlements, but forest guards and local villagers fighting the fires directly were among the casualties, highlighting the risk to ground personnel in wildland firefighting without adequate protective support.",
     "source_type": "domestic_india",
     "hazard_category": "wildland_fire",
-    "id": 141
+    "id": 141,
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Black Summer Bushfires (Australia)",
@@ -2269,7 +3115,13 @@
     "evacuation_rescue": "In the town of Mallacoota (Victoria), an Emergency Warning was issued as the fire cut the town off from the highway; the Australian Defence Force carried out the largest domestic maritime evacuation in Australian history, moving thousands of trapped residents and tourists out by naval ships and aircraft over several days as the fire surrounded the town. This maritime evacuation model — using the sea as an escape route when land routes are cut off by fire — is a key transferable lesson for any coastal or riverside community facing wildfire encirclement.",
     "source_type": "international_reference",
     "hazard_category": "wildland_fire",
-    "id": 142
+    "id": 142,
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Visakhapatnam (Vizag) Styrene Gas Leak (India)",
@@ -2285,7 +3137,13 @@
     "evacuation_rescue": "NDRF conducted door-to-door search operations in the affected villages, evacuating at least 20 people directly to safer locations and hospitals. Two deaths occurred during the chaotic self-evacuation — one person fell into a well while fleeing, another jumped from a second-floor window — underscoring the danger of panicked, uncoordinated evacuation during a toxic gas event versus a structured door-to-door approach.",
     "source_type": "domestic_india",
     "hazard_category": "chemical_toxic_release",
-    "id": 143
+    "id": 143,
+    "arrival_time_min": 16,
+    "road_condition": "Paved arterial road (>= 6m); restricted internal compound turning radius",
+    "traffic_condition": "Heavy urban corridor traffic; green corridor coordinated by traffic police",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "HPCL Visakhapatnam Refinery LPG Tank Explosion (India)",
@@ -2301,7 +3159,13 @@
     "evacuation_rescue": "Given the tank-farm setting, evacuation and rescue centered on refinery personnel and the surrounding industrial area rather than a large civilian population, though the scale of casualties (70 killed) indicates on-site workers had very limited warning time once the tank-to-tank chain reaction began.",
     "source_type": "domestic_india",
     "hazard_category": "industrial_refinery_fire",
-    "id": 144
+    "id": 144,
+    "arrival_time_min": 18,
+    "road_condition": "Industrial collector road (4-6m); commercial vehicle blockages",
+    "traffic_condition": "Moderate traffic with heavy goods vehicle movements",
+    "weather_condition": "Monsoon humidity, intermittent rain; heavy smokelogging and low thermal venting",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "Jharia Coalfield Underground Mine Fire (India)",
@@ -2317,7 +3181,13 @@
     "evacuation_rescue": "Rather than one-time evacuation, this incident type requires ongoing relocation/resettlement planning for residents living above active fire zones and known sinkhole-risk areas — a fundamentally different 'evacuation' model based on long-term land-use planning rather than emergency egress.",
     "source_type": "domestic_india",
     "hazard_category": "mine_fire",
-    "id": 145
+    "id": 145,
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "Dry winter conditions, moderate wind gusts (10-18 km/h); chimney effect in shafts",
+    "water_supply_status": "Initial knockdown using tender tanks (3000-4500L); municipal tanker resupply",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   },
   {
     "title": "MV Wan Hai 503 Container Ship Fire (Kerala Coast, India)",
@@ -2333,6 +3203,12 @@
     "evacuation_rescue": "INS Surat rescued 18 of the 22 crew members (multiple nationalities: Chinese, Taiwanese, Myanmarese, Indonesian) by 4:30 pm the same day, who received first aid before being taken to New Mangalore for further medical treatment. Search and rescue operations continued for the remaining 4 missing crew members.",
     "source_type": "domestic_india",
     "hazard_category": "marine_fire",
-    "id": 146
+    "id": 146,
+    "arrival_time_min": 17,
+    "road_condition": "Standard urban municipal street (3-5m); parked vehicle encroachment",
+    "traffic_condition": "Moderate city traffic; localized choke points",
+    "weather_condition": "High summer ambient heat (>38°C), dry air; accelerated pyrolytic flame spread",
+    "water_supply_status": "On-site tank inadequate/absent; continuous water relay & external bowsers deployed",
+    "fire_growth_stage": "Rapid Growth / Transitioning to flashover; heavy smoke accumulation in egress routes"
   }
 ]

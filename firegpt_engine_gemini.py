@@ -23,10 +23,18 @@ Run:
 """
 
 import os
+import sys
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from google import genai
+
+# Configure UTF-8 for console output on Windows (handles formulas like CO₂ and emojis)
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 # ============================================================
 # 1. CONFIGURATION
@@ -36,7 +44,9 @@ from google import genai
 # is passed in by the caller. See get_api_key() below.
 DATASET_PATH = "firegpt_incidents_dataset.json"
 TOP_K = 3
-GEMINI_MODEL = "gemini-2.5-flash"   # fast + free-tier friendly
+GEMINI_MODEL = "gemini-3.8-flash"   # Fast, up-to-date and reliable
+SIMILARITY_THRESHOLD_MODERATE = 0.12  # Minimum score to consider an incident moderately relevant
+SIMILARITY_THRESHOLD_HIGH = 0.22      # High relevance threshold
 
 
 def get_api_key():
@@ -69,13 +79,20 @@ def load_incidents(path):
 
 def build_corpus_text(incident):
     return (
-        f"Establishment: {incident['establishment_type']}. "
-        f"Cause: {incident['cause']}. "
-        f"Spread pattern: {incident['description']}. "
-        f"Control actions taken: {incident['control_extinguishment']} "
-        f"Mitigation actions taken: {incident['suppression_mitigation']} "
-        f"Evacuation actions taken: {incident['evacuation_rescue']}"
+        f"Establishment: {incident.get('establishment_type', '')}. "
+        f"Cause: {incident.get('cause', '')}. "
+        f"Spread pattern: {incident.get('description', '')}. "
+        f"Arrival time / Response: {incident.get('arrival_time_min', '')} minutes. "
+        f"Road access: {incident.get('road_condition', '')}. "
+        f"Traffic: {incident.get('traffic_condition', '')}. "
+        f"Weather conditions: {incident.get('weather_condition', '')}. "
+        f"Water supply status: {incident.get('water_supply_status', '')}. "
+        f"Fire growth stage: {incident.get('fire_growth_stage', '')}. "
+        f"Control actions taken: {incident.get('control_extinguishment', '')} "
+        f"Mitigation actions taken: {incident.get('suppression_mitigation', '')} "
+        f"Evacuation actions taken: {incident.get('evacuation_rescue', '')}"
     )
+
 
 
 # ============================================================
@@ -104,58 +121,142 @@ class FireGPTEngine:
         query_vec = self.vectorizer.transform([query_text])
         sims = cosine_similarity(query_vec, self.doc_vectors)[0]
         ranked_idx = sims.argsort()[::-1][:top_k]
-        return [
-            {"score": float(sims[idx]), "incident": self.incidents[idx]}
-            for idx in ranked_idx
-        ]
+        
+        results = []
+        for idx in ranked_idx:
+            score = float(sims[idx])
+            if score >= SIMILARITY_THRESHOLD_HIGH:
+                confidence = "High"
+            elif score >= SIMILARITY_THRESHOLD_MODERATE:
+                confidence = "Moderate"
+            else:
+                confidence = "Low"
+            
+            results.append({
+                "score": score,
+                "confidence": confidence,
+                "is_relevant": score >= SIMILARITY_THRESHOLD_MODERATE,
+                "incident": self.incidents[idx],
+            })
+        return results
 
-    def build_prompt(self, live_incident_text, retrieved):
-        context_blocks = []
-        for r in retrieved:
-            inc = r["incident"]
-            context_blocks.append(
-                f"""
---- Past Incident: {inc['title']} ({inc['date']}, {inc['location']}) ---
-Establishment: {inc['establishment_type']}
-Cause: {inc['cause']}
-Spread: {inc['description']}
-Control & Extinguishment actions: {inc['control_extinguishment']}
-Suppression & Mitigation actions: {inc['suppression_mitigation']}
-Evacuation & Rescue actions: {inc['evacuation_rescue']}
+    def build_prompt(self, live_incident_text, retrieved, ops_data=None):
+        relevant_incidents = [r for r in retrieved if r.get("is_relevant", True)]
+
+        if relevant_incidents:
+            context_blocks = []
+            for r in relevant_incidents:
+                inc = r["incident"]
+                context_blocks.append(
+                    f"""
+--- Past Incident: {inc.get('title', 'Historical Record')} ({inc.get('date', 'N/A')}, {inc.get('location', 'N/A')}) [Match: {r['confidence']}, Score: {r['score']:.2f}] ---
+Establishment: {inc.get('establishment_type', 'N/A')}
+Field Realities: Arrival ~{inc.get('arrival_time_min', 'N/A')} min | Road: {inc.get('road_condition', 'N/A')} | Weather: {inc.get('weather_condition', 'N/A')} | Water: {inc.get('water_supply_status', 'N/A')}
+Cause & Spread: {inc.get('cause', 'N/A')} | {inc.get('description', 'N/A')}
+Control & Suppression: {inc.get('control_extinguishment', 'N/A')} | {inc.get('suppression_mitigation', 'N/A')}
+Evacuation: {inc.get('evacuation_rescue', 'N/A')}
 """
-            )
-        context = "\n".join(context_blocks)
-
-        prompt = f"""You are FireGPT, a fire safety decision-support assistant for fire officers and incident commanders in India. You are NOT replacing the incident commander's judgment — you provide reference-based suggestions only.
-
-A LIVE / ONGOING incident has been reported:
-\"\"\"{live_incident_text}\"\"\"
-
-Below are the most similar PAST incidents from a historical database, including what actions were actually taken in each:
+                )
+            context = "\n".join(context_blocks)
+            precedent_instructions = f"""Below are RELEVANT PAST INCIDENTS retrieved from historical Indian fire records:
 {context}
 
-Based on patterns from these past incidents, write a structured advisory with exactly three sections:
+Draw tactical insights from these matching incidents and cite which past incident informs each recommendation where relevant. However, adapt all actions strictly to the live scenario."""
+        else:
+            precedent_instructions = """NOTE ON HISTORICAL PRECEDENTS:
+No historical incidents in the database met the relevance threshold for this specific scenario.
+DO NOT hallucinate or force-fit false historical precedents. Formulate the advisory based strictly on standard firefighting doctrine, the National Building Code of India (NBC 2016 Part 4: Fire & Life Safety), and general incident command procedures."""
 
-1. SUPPRESSION TACTICS — concrete firefighting/extinguishment actions relevant to this situation, citing which past incident(s) the idea is drawn from.
-2. MITIGATION STEPS — actions to prevent escalation or secondary hazards (e.g. isolating power, cooling nearby stock, isolating gas lines), citing which past incident(s) informed it.
-3. EVACUATION PRIORITIES — order of operations and specific tactics for getting people out safely, citing which past incident(s) informed it.
+        ops_section = ""
+        if ops_data:
+            ops_section = f"""
+============================================================
+LIVE OPERATIONAL & ON-GROUND DISPATCH PARAMETERS:
+- Time of Fire Dept Arrival (Elapsed Burn Time): {ops_data.get('arrival_time', 'Not specified')}
+- Road & Approach Conditions: {ops_data.get('road_condition', 'Not specified')}
+- Traffic Gridlock Status: {ops_data.get('traffic_condition', 'Not specified')}
+- Weather & Environmental Factor: {ops_data.get('weather_condition', 'Not specified')}
+- On-Scene Water Supply / Static Capacity: {ops_data.get('water_supply', 'Not specified')}
+- Structure / Occupancy Type: {ops_data.get('structure_type', 'Not specified')}
 
-Keep it practical and specific to the live incident described — do not just copy the past incidents verbatim. End with one line reminding the reader this is decision-support only and the incident commander's on-ground judgment takes precedence.
+TACTICAL FACTOR ASSESSMENT:
+* If arrival time > 15 mins: Fire has reached or passed compartment flashover (t-squared fire growth model Q = alpha*t^2); anticipate extensive structural thermal penetration and zero visibility in corridors.
+* If road access is narrow (< 3m): Standard large fire tenders cannot enter; mandate Quick Response Vehicles (QRV), portable pumps, or high-pressure hose relays (> 150m) from the main road.
+* If weather is high ambient heat (>38°C) or windy (>20 km/h): Factor in accelerated horizontal flame leaps, brand lofting, and extreme crew heat stress.
+* If water supply is limited to onboard tender tanks (3000-4500L): Continuous jetting lasts only 5-7 minutes. Immediately order continuous relay pumping / water bowsers before committing interior lines.
+============================================================
+"""
+
+        prompt = f"""You are FireGPT, an operational fire safety decision-support assistant for fire officers and Incident Commanders (ICs) in India.
+You provide rapid, high-priority, point-by-point tactical action checklists. You do NOT replace the Incident Commander's on-ground judgment.
+
+LIVE / ONGOING INCIDENT REPORT:
+\"\"\"{live_incident_text}\"\"\"
+
+{ops_section}
+
+{precedent_instructions}
+
+============================================================
+CRITICAL TACTICAL SAFETY RULES & GUARDRAILS:
+1. ELECTRICAL HAZARDS (Class C / Energized):
+   - Always confirm electrical isolation before applying water or conductive extinguishing agents.
+   - For solar PV arrays or UPS/battery rooms, treat as continuously energized even if mains are tripped.
+2. VENTILATION & FLASH OVER / BACKDRAFT:
+   - NEVER open doors, windows, or roofs without charged hose lines in place at the entry point.
+   - Coordinate horizontal/vertical ventilation with fire attack crews.
+3. HAZARDOUS MATERIALS & UTILITIES:
+   - Immediately locate and isolate domestic/commercial piped gas lines (PNG), LPG cylinders, diesel storage, and medical oxygen manifolds (especially in hospitals).
+4. FIREFIGHTER SAFETY & CREW ACCOUNTABILITY:
+   - Mandate Personal Protective Equipment (SCBA + turnout gear). Maintain primary and secondary escape paths.
+   - Monitor structural integrity (cracked RCC, sagging steel, false ceilings, falling ACP facade panels).
+5. NBC 2016 & LIFE SAFETY:
+   - Adhere to the principles of National Building Code of India (NBC 2016 Part 4) regarding compartmentation, stairwell smoke control/pressurization, and horizontal evacuation in institutional/hospital occupancies.
+============================================================
+
+CRITICAL FORMAT REQUIREMENT — ACTIONABLE CHECKPOINTS ONLY:
+Do NOT output lengthy text paragraphs, academic narratives, or essay-style prose. An Incident Commander under extreme time pressure needs rapid, point-by-point tactical checkpoints (- [ ]) that can be executed and verified sequentially by the command team.
+
+Structure the response into EXACTLY THREE CHECKLIST SECTIONS:
+
+### 1. SUPPRESSION TACTICS (Tactical Checkpoints)
+- [ ] **[0-3 MINS / ATTACK ROUTE]** Specify primary attack entry point (e.g. external fire escape vs. pressurized stairwell) and hose deployment.
+- [ ] **[EXTINGUISHING AGENT & METHOD]** Exact agent specification (e.g. CO2, DCP powder, high-pressure fog stream, AFFF foam) matched to fuel/electrical hazards.
+- [ ] **[WATER CONTINUITY & RELAY]** Specific action for tender turnaround, relay pumping, or static tank utilization given the reported road & water constraints.
+- [ ] **[PRECEDENT LESSON]** Concrete tactical action drawn from matching precedent(s) or NBC doctrine.
+
+### 2. MITIGATION & EXPOSURE PROTECTION (Tactical Checkpoints)
+- [ ] **[UTILITY ISOLATION]** Exact sequence for electrical breakers, piped gas (PNG), LPG banks, medical O2 zone valves, or rooftop solar arrays.
+- [ ] **[SMOKE & VENTILATION CONTROL]** Critical ventilation rule: caution against premature window breaching; coordinate venting with charged lines.
+- [ ] **[EXPOSURE PROTECTION]** Actions to stop upward/horizontal spread (cooling facade, boundary water curtains, closing fire doors).
+- [ ] **[STRUCTURAL SAFETY WATCH]** Specific failure indicators to monitor (false ceilings, duct collapse, sagging trusses, facade panel drop).
+
+### 3. EVACUATION & RESCUE PRIORITIES (Tactical Checkpoints)
+- [ ] **[PRIORITY SEQUENCE]** Priority order: immediate fire compartment -> floor directly above -> general building egress.
+- [ ] **[RESCUE METHODOLOGY]** Clear instruction: horizontal progressive relocation to safe smoke compartments (NBC 2016) vs. vertical stairwell descent vs. external aerial ladders.
+- [ ] **[SPECIALIZED CARE RESCUE]** Action for high-vulnerability occupants (e.g., ventilator/ICU patients via Ambu-bag paired teams, mobility-impaired persons).
+- [ ] **[TRIAGE & CORRIDOR COMMAND]** Safe exterior Casualty Collection Point (CCP) setup and traffic police coordination for ambulance green corridor.
+
+End with:
+"⚠️ **Operational Notice:** This checklist is an AI-assisted tactical decision-support aid. The Incident Commander's on-scene assessment and real-time ground conditions take absolute precedence."
 """
         return prompt
 
-    def advise(self, live_incident_text, top_k=TOP_K):
+
+    def advise(self, live_incident_text, top_k=TOP_K, ops_data=None):
         retrieved = self.retrieve(live_incident_text, top_k=top_k)
 
         print("=" * 90)
         print(f"LIVE INCIDENT:\n  {live_incident_text}")
+        if ops_data:
+            print(f"OPERATIONAL DATA:\n  {ops_data}")
         print("=" * 90)
         print(f"\nTop {len(retrieved)} similar past incidents used as reference:")
         for rank, r in enumerate(retrieved, start=1):
             inc = r["incident"]
-            print(f"  [{rank}] {inc['title']}  (similarity: {r['score']:.3f})")
+            print(f"  [{rank}] {inc['title']}  (match: {r['confidence']}, score: {r['score']:.3f})")
 
-        prompt = self.build_prompt(live_incident_text, retrieved)
+        prompt = self.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
 
         print("\n[FireGPT] Asking Gemini to synthesize advisory ...\n")
         response = self.client.models.generate_content(
@@ -164,12 +265,15 @@ Keep it practical and specific to the live incident described — do not just co
         )
 
         print("-" * 90)
-        print("FIREGPT ADVISORY")
-        print("-" * 90)
-        print(response.text)
+        print("FIREGPT TACTICAL CHECKLIST")
+        try:
+            print(response.text)
+        except UnicodeEncodeError:
+            print(response.text.encode(sys.stdout.encoding or "utf-8", errors="replace").decode(sys.stdout.encoding or "utf-8"))
         print("=" * 90 + "\n")
 
         return response.text
+
 
 
 # ============================================================

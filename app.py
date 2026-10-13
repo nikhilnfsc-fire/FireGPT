@@ -36,9 +36,9 @@ def get_groq_client():
 groq_client = get_groq_client()
 
 
-def generate_advisory(prompt, max_gemini_attempts=3):
+def generate_advisory(prompt, max_gemini_attempts=2):
     """
-    Try Gemini first (with retries). If it keeps failing, fall back to Groq.
+    Try Gemini first (with fast retries). If it fails, fall back to Groq.
     Returns (advisory_text, model_used, last_error) — last_error is None on success.
     """
     last_error = None
@@ -50,12 +50,15 @@ def generate_advisory(prompt, max_gemini_attempts=3):
                 model=GEMINI_MODEL,
                 contents=prompt,
             )
-            return response.text, "Gemini", None
+            if response.text and response.text.strip():
+                return response.text, "Gemini", None
+            else:
+                last_error = f"[Gemini attempt {attempt}] Empty response received"
         except Exception as e:
             last_error = f"[Gemini attempt {attempt}] {type(e).__name__}: {e}"
             print(last_error)  # goes to Streamlit Cloud logs
             if attempt < max_gemini_attempts:
-                time.sleep(5)
+                time.sleep(1.5)
 
     # --- Gemini failed after retries, try Groq ---
     if groq_client is not None:
@@ -63,8 +66,14 @@ def generate_advisory(prompt, max_gemini_attempts=3):
             completion = groq_client.chat.completions.create(
                 model=GROQ_MODEL,
                 messages=[{"role": "user", "content": prompt}],
+                max_tokens=2048,
             )
-            return completion.choices[0].message.content, "Groq (fallback)", None
+            msg = completion.choices[0].message
+            content = msg.content if msg.content and msg.content.strip() else getattr(msg, 'reasoning', None)
+            if content and content.strip():
+                return content, "Groq (fallback)", None
+            else:
+                last_error = f"[Groq] Empty content returned from {GROQ_MODEL}"
         except Exception as e:
             last_error = f"[Groq] {type(e).__name__}: {e}"
             print(last_error)
@@ -73,6 +82,7 @@ def generate_advisory(prompt, max_gemini_attempts=3):
         print(last_error)
 
     return None, None, last_error
+
 
 # ============================================================
 # GOOGLE SHEETS SETUP (for feedback storage)
@@ -147,10 +157,51 @@ st.divider()
 # ============================================================
 # UI — INPUT
 # ============================================================
+# ============================================================
+# UI — INPUT & QUICK PRESETS
+# ============================================================
 st.subheader("Describe the live incident")
+
+SCENARIO_PRESETS = {
+    "Custom (Type your own)": "",
+    "🏥 Hospital ICU Fire (Oxygen & Life Support Hazard)": (
+        "Fire has broken out on the 3rd floor ICU of a 5-storey hospital in Nagpur. "
+        "Dense smoke filling corridors; power tripped but backup DG is supplying ventilators. "
+        "12 ICU patients on life support; medical oxygen pipeline runs along corridor ceiling. "
+        "Single main staircase and an external fire escape available."
+    ),
+    "🏨 High-Rise Hotel Fire (Trapped Occupants)": (
+        "Fire reported on 4th floor banquet hall of a 10-storey hotel in Mumbai at 11:30 PM. "
+        "Heavy decorative false ceiling and acoustic panels burning rapidly. "
+        "Guests trapped on floors 5 through 8; central AC duct spreading smoke to upper floors. "
+        "Two stairwells, one heavily smoke-logged."
+    ),
+    "🏭 Chemical Godown / Solvent Warehouse Fire": (
+        "Blaze in a chemical warehouse in an industrial zone. "
+        "Storing mixed solvents, paint drums, and plastic raw materials. "
+        "Multiple drum BLEVE / explosion sounds heard; adjacent textile godowns 10 meters away. "
+        "Dense toxic fumes blowing towards nearby residential colony."
+    ),
+    "🏬 Congested Commercial Market Fire": (
+        "Major fire on ground floor cloth market in a congested bazaar. "
+        "Very narrow congested lanes (width < 3 meters), overhead dangling electrical wires. "
+        "Fire spreading vertically to residential floors above shopfronts. "
+        "Hydrant pressure low, water tenders facing restricted access."
+    ),
+}
+
+selected_preset = st.selectbox(
+    "Scenario template (select to pre-fill or choose Custom)",
+    options=list(SCENARIO_PRESETS.keys()),
+    index=0,
+)
+
+default_text = SCENARIO_PRESETS[selected_preset] if selected_preset != "Custom (Type your own)" else ""
+
 live_incident_text = st.text_area(
     "Include location/establishment type, cause (if known), what's burning, "
     "current spread, and any trapped occupants or hazards.",
+    value=default_text,
     height=140,
     placeholder=(
         "e.g. Fire has broken out on the third floor of a hospital in Nagpur. "
@@ -159,9 +210,84 @@ live_incident_text = st.text_area(
     ),
 )
 
+# ============================================================
+# UI — OPERATIONAL FIELD PARAMETERS (INCIDENT COMMAND INPUTS)
+# ============================================================
+with st.expander("🚒 Operational & Field Dispatch Parameters (Incident Command Inputs)", expanded=True):
+    st.caption("Provide real-time dispatch and on-scene constraints to calculate fire growth dynamics and logistic feasibility.")
+    col1, col2 = st.columns(2)
+    with col1:
+        arrival_time_val = st.selectbox(
+            "⏱️ Fire Dept Arrival / Elapsed Burn Time",
+            options=[
+                "< 5 mins (Incipient / Early Fire Growth)",
+                "5–15 mins (Rapid Growth / High Flashover Risk)",
+                "15–30 mins (Fully Developed / Multi-Compartment Flashover)",
+                "> 30 mins (Extended Structural Conflagration / Facade Spread)",
+            ],
+            index=1,
+            help="SFAC benchmark targets 3-5 mins, but Indian urban traffic frequently extends response to 15-25 mins. In t-squared fire dynamics (Q=α*t^2), modern synthetic furnishings reach flashover within 4-8 minutes.",
+        )
+        road_condition_val = st.selectbox(
+            "🛣️ Road & Access Route Condition",
+            options=[
+                "Standard Motorable Municipal Street (3-6m, single tender approach)",
+                "Narrow Congested Gully / Bazaar (< 3m, tender entry blocked; QRV/relay required)",
+                "Wide Paved Arterial Road (>= 6m per NBC 2016, dual tender & aerial platform)",
+                "Potholed / Under Construction / Blocked by parked two-wheelers & overhead wires",
+            ],
+            index=0,
+            help="NBC 2016 Part 4 specifies min 6m motorable access around buildings >15m. Narrow lanes mandate long hose line relays (>150m).",
+        )
+        traffic_condition_val = st.selectbox(
+            "🚦 Traffic Congestion Level En Route",
+            options=[
+                "Moderate Urban Traffic (Minor localized choke points)",
+                "Severe Gridlock / Peak-Hour Traffic (Mutual aid & water bowsers delayed)",
+                "Clear / Fast Corridor (Green corridor coordinated by traffic police / night transit)",
+            ],
+            index=0,
+        )
+
+    with col2:
+        weather_condition_val = st.selectbox(
+            "🌤️ Weather & Environmental Conditions",
+            options=[
+                "Normal / Mild Temperature & Calm Winds",
+                "High Summer Heat (>38°C) + Dry Air (Accelerates pyrolysis, extreme crew exhaustion)",
+                "Strong Gusty Winds (>20 km/h) (Rapid horizontal propagation & ember/brand lofting)",
+                "Monsoon Rain / High Humidity (Heavy smoke logging, poor thermal venting)",
+            ],
+            index=0,
+            help="High ambient heat accelerates ignition while gusty winds push horizontal flame fronts.",
+        )
+        water_supply_val = st.selectbox(
+            "💧 On-Scene Water Supply & Static Capacity",
+            options=[
+                "Tender Onboard Water Only (3000-4500L, lasts ~5-7 min under continuous jetting)",
+                "Dedicated On-site Static Fire Tank / Wet Riser Functioning",
+                "Municipal Pressurized Street Hydrants Available",
+                "Relay Pumping Required from Distant Open Water Source / Canal (>200m)",
+            ],
+            index=0,
+            help="Water supply continuity is critical before interior attack teams are committed.",
+        )
+        structure_type_val = st.selectbox(
+            "🏢 Structure & Occupancy Classification",
+            options=[
+                "Low-Rise Commercial / Residential (< 15 meters)",
+                "High-Rise Building (> 15 meters per NBC 2016 Part 4)",
+                "Hospital / Healthcare Facility (ICU & Bedridden Occupants)",
+                "Industrial Godown / Warehouse / Chemical Shed (High Fuel Load)",
+                "Mixed-Use (Commercial Ground Floor + Residential Upper Floors)",
+                "Basement / Underground Enclosure (Severe Heat & Zero Visibility)",
+            ],
+            index=0,
+        )
+
 top_k = st.slider("Number of similar past incidents to reference", min_value=1, max_value=5, value=3)
 
-submit = st.button("Get Advisory", type="primary")
+submit = st.button("Generate Tactical Checkpoints", type="primary")
 
 # ============================================================
 # RATE LIMITING CHECK
@@ -195,36 +321,78 @@ if submit:
         st.session_state.request_count += 1
         st.session_state.last_request_time = datetime.now()
 
-        with st.spinner("Retrieving similar past incidents and generating advisory..."):
-            retrieved = engine.retrieve(live_incident_text, top_k=top_k)
-            prompt = engine.build_prompt(live_incident_text, retrieved)
+        ops_data = {
+            "arrival_time": arrival_time_val,
+            "road_condition": road_condition_val,
+            "traffic_condition": traffic_condition_val,
+            "weather_condition": weather_condition_val,
+            "water_supply": water_supply_val,
+            "structure_type": structure_type_val,
+        }
+
+        # Build comprehensive retrieval query incorporating field reality constraints
+        retrieval_query = (
+            f"{live_incident_text}. "
+            f"Establishment: {structure_type_val}. "
+            f"Road access: {road_condition_val}. "
+            f"Traffic: {traffic_condition_val}. "
+            f"Weather: {weather_condition_val}. "
+            f"Water supply: {water_supply_val}."
+        )
+
+        with st.spinner("Analyzing incident parameters, matching historical precedents, and synthesizing checkpoints..."):
+            retrieved = engine.retrieve(retrieval_query, top_k=top_k)
+            prompt = engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
 
             advisory_text, model_used, last_error = generate_advisory(prompt)
 
             if advisory_text is None:
                 st.error(
                     "Both the primary and backup AI models are currently unavailable. "
-                    "Please wait a minute and click 'Get Advisory' again."
+                    "Please wait a minute and click 'Generate Tactical Checkpoints' again."
                 )
                 with st.expander("Technical details (for debugging)"):
                     st.code(last_error or "No error details captured.")
                 st.stop()
 
         st.subheader("Reference incidents used")
+        relevant_found = any(r.get("is_relevant", True) for r in retrieved)
+        if not relevant_found:
+            st.info(
+                "ℹ️ **No direct high-confidence historical match found in database for this specific scenario.** "
+                "The advisory below is synthesized using **National Building Code of India (NBC 2016 Part 4: Fire & Life Safety)** "
+                "protocols, t-squared fire growth dynamics, and standard tactical firefighting doctrine."
+            )
+
         for rank, r in enumerate(retrieved, start=1):
             inc = r["incident"]
-            with st.expander(f"[{rank}] {inc['title']} — similarity {r['score']:.2f}"):
+            conf = r.get("confidence", "Moderate")
+            score = r.get("score", 0.0)
+            badge = "🟢 High Match" if conf == "High" else ("🟡 Moderate Match" if conf == "Moderate" else "⚪ Low Match")
+            with st.expander(f"[{rank}] {inc.get('title', 'Historical Record')} — {badge} (score: {score:.2f})"):
                 st.write(f"**Location:** {inc.get('location', 'N/A')}  |  **Date:** {inc.get('date', 'N/A')}")
                 st.write(f"**Establishment:** {inc.get('establishment_type', 'N/A')}")
-                st.write(f"**Cause:** {inc.get('cause', 'N/A')}")
+                st.write(f"**Field Realities:** Arrival: ~{inc.get('arrival_time_min', 'N/A')} min | Road: {inc.get('road_condition', 'N/A')}")
+                st.write(f"**Traffic & Weather:** Traffic: {inc.get('traffic_condition', 'N/A')} | Weather: {inc.get('weather_condition', 'N/A')}")
+                st.write(f"**Water Supply on Arrival:** {inc.get('water_supply_status', 'N/A')}")
                 st.write(f"**Control & Extinguishment:** {inc.get('control_extinguishment', 'N/A')}")
                 st.write(f"**Suppression & Mitigation:** {inc.get('suppression_mitigation', 'N/A')}")
                 st.write(f"**Evacuation & Rescue:** {inc.get('evacuation_rescue', 'N/A')}")
 
-        st.subheader("FireGPT Advisory")
+        st.subheader("📋 Incident Command Tactical Checkpoints")
         if model_used == "Groq (fallback)":
             st.caption("⚡ Generated using backup model (Gemini was unavailable)")
+        
         st.markdown(advisory_text)
+
+        st.download_button(
+            label="📥 Export Tactical Checkpoints (.txt)",
+            data=advisory_text,
+            file_name=f"FireGPT_Checkpoints_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+            mime="text/plain",
+        )
+
+
 
 st.divider()
 
