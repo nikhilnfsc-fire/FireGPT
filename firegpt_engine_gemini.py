@@ -44,7 +44,12 @@ if hasattr(sys.stdout, "reconfigure"):
 # is passed in by the caller. See get_api_key() below.
 DATASET_PATH = "firegpt_incidents_dataset.json"
 TOP_K = 3
-GEMINI_MODEL = "gemini-3.8-flash"   # Fast, up-to-date and reliable
+DEFAULT_GEMINI_MODELS = [
+    os.environ.get("GEMINI_MODEL", "gemini-2.5-flash"),
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+]
+GEMINI_MODEL = DEFAULT_GEMINI_MODELS[0]
 SIMILARITY_THRESHOLD_MODERATE = 0.12  # Minimum score to consider an incident moderately relevant
 SIMILARITY_THRESHOLD_HIGH = 0.22      # High relevance threshold
 
@@ -84,13 +89,14 @@ def build_corpus_text(incident):
         f"Spread pattern: {incident.get('description', '')}. "
         f"Arrival time / Response: {incident.get('arrival_time_min', '')} minutes. "
         f"Road access: {incident.get('road_condition', '')}. "
-        f"Traffic: {incident.get('traffic_condition', '')}. "
-        f"Weather conditions: {incident.get('weather_condition', '')}. "
+        f"Traffic condition: {incident.get('traffic_condition', '')}. "
+        f"Weather factor: {incident.get('weather_condition', '')}. "
         f"Water supply status: {incident.get('water_supply_status', '')}. "
         f"Fire growth stage: {incident.get('fire_growth_stage', '')}. "
         f"Control actions taken: {incident.get('control_extinguishment', '')} "
         f"Mitigation actions taken: {incident.get('suppression_mitigation', '')} "
-        f"Evacuation actions taken: {incident.get('evacuation_rescue', '')}"
+        f"Evacuation actions taken: {incident.get('evacuation_rescue', '')} "
+        f"Verified Source: {incident.get('primary_source', '')} - {incident.get('source_reference', '')}"
     )
 
 
@@ -151,21 +157,22 @@ class FireGPTEngine:
                     f"""
 --- Past Incident: {inc.get('title', 'Historical Record')} ({inc.get('date', 'N/A')}, {inc.get('location', 'N/A')}) [Match: {r['confidence']}, Score: {r['score']:.2f}] ---
 Establishment: {inc.get('establishment_type', 'N/A')}
-Field Realities: Arrival ~{inc.get('arrival_time_min', 'N/A')} min | Road: {inc.get('road_condition', 'N/A')} | Weather: {inc.get('weather_condition', 'N/A')} | Water: {inc.get('water_supply_status', 'N/A')}
+Field Realities & Weather/Traffic Impact: Arrival ~{inc.get('arrival_time_min', 'N/A')} min | Road: {inc.get('road_condition', 'N/A')} | Traffic: {inc.get('traffic_condition', 'N/A')} | Weather: {inc.get('weather_condition', 'N/A')} | Water: {inc.get('water_supply_status', 'N/A')}
 Cause & Spread: {inc.get('cause', 'N/A')} | {inc.get('description', 'N/A')}
 Control & Suppression: {inc.get('control_extinguishment', 'N/A')} | {inc.get('suppression_mitigation', 'N/A')}
-Evacuation: {inc.get('evacuation_rescue', 'N/A')}
+Evacuation & Rescue: {inc.get('evacuation_rescue', 'N/A')}
+Verified Reference / Source: {inc.get('primary_source', 'Official Inquiry Log')} | Authority: {inc.get('investigating_agency', 'State Fire Directorate')} | Reference: {inc.get('source_reference', 'National Safety Records')}
 """
                 )
             context = "\n".join(context_blocks)
-            precedent_instructions = f"""Below are RELEVANT PAST INCIDENTS retrieved from historical Indian fire records:
+            precedent_instructions = f"""Below are RELEVANT PAST INCIDENTS retrieved from verified historical fire records:
 {context}
 
-Draw tactical insights from these matching incidents and cite which past incident informs each recommendation where relevant. However, adapt all actions strictly to the live scenario."""
+Draw tactical lessons from these matching incidents and cite which past incident informs each recommendation in simple terms. However, adapt all actions strictly to the live scenario."""
         else:
             precedent_instructions = """NOTE ON HISTORICAL PRECEDENTS:
 No historical incidents in the database met the relevance threshold for this specific scenario.
-DO NOT hallucinate or force-fit false historical precedents. Formulate the advisory based strictly on standard firefighting doctrine, the National Building Code of India (NBC 2016 Part 4: Fire & Life Safety), and general incident command procedures."""
+Formulate the advisory based strictly on standard firefighting doctrine, the National Building Code of India (NBC 2016 Part 4: Fire & Life Safety), and general incident command procedures."""
 
         ops_section = ""
         if ops_data:
@@ -179,16 +186,20 @@ LIVE OPERATIONAL & ON-GROUND DISPATCH PARAMETERS:
 - On-Scene Water Supply / Static Capacity: {ops_data.get('water_supply', 'Not specified')}
 - Structure / Occupancy Type: {ops_data.get('structure_type', 'Not specified')}
 
-TACTICAL FACTOR ASSESSMENT:
-* If arrival time > 15 mins: Fire has reached or passed compartment flashover (t-squared fire growth model Q = alpha*t^2); anticipate extensive structural thermal penetration and zero visibility in corridors.
-* If road access is narrow (< 3m): Standard large fire tenders cannot enter; mandate Quick Response Vehicles (QRV), portable pumps, or high-pressure hose relays (> 150m) from the main road.
-* If weather is high ambient heat (>38°C) or windy (>20 km/h): Factor in accelerated horizontal flame leaps, brand lofting, and extreme crew heat stress.
-* If water supply is limited to onboard tender tanks (3000-4500L): Continuous jetting lasts only 5-7 minutes. Immediately order continuous relay pumping / water bowsers before committing interior lines.
+ENVIRONMENTAL & LOGISTICAL IMPACT ON FIREFIGHTING:
+* TRAFFIC EFFECT: If traffic is severe or access roads are congested, mutual-aid water bowsers will be delayed. Order continuous water relay pumping immediately.
+* WEATHER EFFECT: If hot (>38°C) or windy (>20 km/h), flames spread faster across windows/facades and embers can jump to nearby buildings; rotate firefighting crews early to prevent heat exhaustion. If raining or humid, heavy smoke stays trapped inside corridors—do not break windows without charged water hoses ready.
+* ROAD EFFECT: If narrow lane (< 3m), large fire engines cannot enter. Commit Quick Response Vehicles (QRV) and run 150m+ hose relays from the main road.
+* WATER EFFECT: If water is tender-only (lasts only 5-7 minutes of continuous spraying), order continuous water refills before sending crews into interior rooms.
 ============================================================
 """
 
-        prompt = f"""You are FireGPT, an operational fire safety decision-support assistant for fire officers and Incident Commanders (ICs) in India.
-You provide rapid, high-priority, point-by-point tactical action checklists. You do NOT replace the Incident Commander's on-ground judgment.
+        prompt = f"""You are FireGPT, an operational fire safety decision-support assistant for fire officers and firefighters in India.
+Your mission is to provide clear, practical, easy-to-understand tactical action steps for firefighters on the ground.
+
+CRITICAL TONE & CLARITY RULE:
+- KEEP IT SIMPLE AND EASY TO UNDERSTAND: Avoid overly dense, academic, or theoretical jargon. Firefighters are in high-stress, noisy conditions. Use plain, direct, active language (e.g., instead of "pyrolytic thermal penetration and compartmentation breach", write "Fire is intense; room is at risk of sudden flashover — keep charged hose lines ready").
+- Focus on practical, life-saving actions that can be read and executed in seconds.
 
 LIVE / ONGOING INCIDENT REPORT:
 \"\"\"{live_incident_text}\"\"\"
@@ -198,47 +209,42 @@ LIVE / ONGOING INCIDENT REPORT:
 {precedent_instructions}
 
 ============================================================
-CRITICAL TACTICAL SAFETY RULES & GUARDRAILS:
-1. ELECTRICAL HAZARDS (Class C / Energized):
-   - Always confirm electrical isolation before applying water or conductive extinguishing agents.
-   - For solar PV arrays or UPS/battery rooms, treat as continuously energized even if mains are tripped.
-2. VENTILATION & FLASH OVER / BACKDRAFT:
-   - NEVER open doors, windows, or roofs without charged hose lines in place at the entry point.
-   - Coordinate horizontal/vertical ventilation with fire attack crews.
-3. HAZARDOUS MATERIALS & UTILITIES:
-   - Immediately locate and isolate domestic/commercial piped gas lines (PNG), LPG cylinders, diesel storage, and medical oxygen manifolds (especially in hospitals).
-4. FIREFIGHTER SAFETY & CREW ACCOUNTABILITY:
-   - Mandate Personal Protective Equipment (SCBA + turnout gear). Maintain primary and secondary escape paths.
-   - Monitor structural integrity (cracked RCC, sagging steel, false ceilings, falling ACP facade panels).
-5. NBC 2016 & LIFE SAFETY:
-   - Adhere to the principles of National Building Code of India (NBC 2016 Part 4) regarding compartmentation, stairwell smoke control/pressurization, and horizontal evacuation in institutional/hospital occupancies.
+CORE FIREFIGHTER SAFETY RULES:
+1. ELECTRICAL HAZARDS: Always shut off electricity before spraying water. Treat battery rooms and solar panels as live even after mains power is off.
+2. SMOKE & VENTILATION: Never break windows or open doors until charged water hoses are standing right at the door to prevent a backdraft or flashover.
+3. GAS & FUEL HAZARDS: Immediately locate and shut off piped cooking gas (PNG), LPG gas cylinders, and generator fuel lines.
+4. FIREFIGHTER SAFETY: Wear complete protective gear with breathing apparatus (SCBA). Keep two clear exit routes open. Watch for falling false ceilings, cracked concrete, and dropping facade panels.
+5. EVACUATION PRIORITY: Get people out from the fire room first, then the floor directly above, then the rest of the building.
 ============================================================
 
-CRITICAL FORMAT REQUIREMENT — ACTIONABLE CHECKPOINTS ONLY:
-Do NOT output lengthy text paragraphs, academic narratives, or essay-style prose. An Incident Commander under extreme time pressure needs rapid, point-by-point tactical checkpoints (- [ ]) that can be executed and verified sequentially by the command team.
+STRUCTURE THE ADVISORY INTO EXACTLY FOUR SECTIONS:
+Use checklist bullet points (- [ ]) that the commander can check off one by one.
 
-Structure the response into EXACTLY THREE CHECKLIST SECTIONS:
+### 1. FIRE ATTACK & SUPPRESSION (Clear, Step-by-Step Actions)
+- [ ] **[WHERE TO ENTER]** Safe entry route (e.g. use exterior fire escape or protected stairwell; NEVER use elevators).
+- [ ] **[WHAT TO SPRAY]** Simple agent choice (water spray, foam for oils/chemicals, or CO2/powder for electrical).
+- [ ] **[WATER RELAY PLAN]** How to keep water flowing continuously given the reported road and traffic constraints.
+- [ ] **[PRACTICAL LESSON]** Direct lesson from matching past incident or standard fire rules.
 
-### 1. SUPPRESSION TACTICS (Tactical Checkpoints)
-- [ ] **[0-3 MINS / ATTACK ROUTE]** Specify primary attack entry point (e.g. external fire escape vs. pressurized stairwell) and hose deployment.
-- [ ] **[EXTINGUISHING AGENT & METHOD]** Exact agent specification (e.g. CO2, DCP powder, high-pressure fog stream, AFFF foam) matched to fuel/electrical hazards.
-- [ ] **[WATER CONTINUITY & RELAY]** Specific action for tender turnaround, relay pumping, or static tank utilization given the reported road & water constraints.
-- [ ] **[PRECEDENT LESSON]** Concrete tactical action drawn from matching precedent(s) or NBC doctrine.
+### 2. HAZARD CONTROL & SPREAD PREVENTION (Clear Safety Steps)
+- [ ] **[SHUT OFF POWER & GAS]** Simple shutoff instructions for electricity, gas pipelines, and backup generators.
+- [ ] **[SAFE SMOKE CLEARING]** Warning: Do not break windows until water lines are charged and ready.
+- [ ] **[STOP SPREAD TO NEIGHBORS]** Spray water curtains on outer walls, cool adjacent buildings, and close fire doors.
+- [ ] **[WATCH FOR COLLAPSE]** Warning signs to watch (sagging ceilings, burning cables, cracked walls).
 
-### 2. MITIGATION & EXPOSURE PROTECTION (Tactical Checkpoints)
-- [ ] **[UTILITY ISOLATION]** Exact sequence for electrical breakers, piped gas (PNG), LPG banks, medical O2 zone valves, or rooftop solar arrays.
-- [ ] **[SMOKE & VENTILATION CONTROL]** Critical ventilation rule: caution against premature window breaching; coordinate venting with charged lines.
-- [ ] **[EXPOSURE PROTECTION]** Actions to stop upward/horizontal spread (cooling facade, boundary water curtains, closing fire doors).
-- [ ] **[STRUCTURAL SAFETY WATCH]** Specific failure indicators to monitor (false ceilings, duct collapse, sagging trusses, facade panel drop).
+### 3. RESCUE & EVACUATION (Clear Life-Saving Priorities)
+- [ ] **[WHO TO RESCUE FIRST]** Priority: fire room first, floor directly above second, then other floors.
+- [ ] **[HOW TO MOVE PEOPLE]** Move people sideways into safe smoke-free sections or down stairs with breathing support.
+- [ ] **[CRITICAL PATIENTS / TRAPPED PEOPLE]** Simple instructions for moving patients on life-support or elderly/injured persons.
+- [ ] **[SAFE GATHERING POINT]** Set up a safe triage area outside and coordinate green corridors with traffic police for ambulances.
 
-### 3. EVACUATION & RESCUE PRIORITIES (Tactical Checkpoints)
-- [ ] **[PRIORITY SEQUENCE]** Priority order: immediate fire compartment -> floor directly above -> general building egress.
-- [ ] **[RESCUE METHODOLOGY]** Clear instruction: horizontal progressive relocation to safe smoke compartments (NBC 2016) vs. vertical stairwell descent vs. external aerial ladders.
-- [ ] **[SPECIALIZED CARE RESCUE]** Action for high-vulnerability occupants (e.g., ventilator/ICU patients via Ambu-bag paired teams, mobility-impaired persons).
-- [ ] **[TRIAGE & CORRIDOR COMMAND]** Safe exterior Casualty Collection Point (CCP) setup and traffic police coordination for ambulance green corridor.
+### 4. VERIFIED REFERENCES & SOURCES (Mandatory at Bottom)
+List the verified historical cases and safety references used to generate this plan:
+* **Historical Reference(s):** [Incident name, Date, Location] — Source: [Name of investigation report, Fire Department log, or public inquiry]
+* **Doctrine & Standard:** National Building Code of India (NBC 2016 Part 4: Fire & Life Safety) and Standard Fire Operational Manual.
 
 End with:
-"⚠️ **Operational Notice:** This checklist is an AI-assisted tactical decision-support aid. The Incident Commander's on-scene assessment and real-time ground conditions take absolute precedence."
+"⚠️ **Operational Notice:** This checklist is an AI-assisted decision-support tool. Real-time conditions on the ground and the Incident Commander's direct observation always take first priority."
 """
         return prompt
 

@@ -46,22 +46,36 @@ def generate_advisory(prompt, max_gemini_attempts=2):
     """
     last_error = None
 
-    # --- Try Gemini ---
-    for attempt in range(1, max_gemini_attempts + 1):
-        try:
-            response = engine.client.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=prompt,
-            )
-            if response.text and response.text.strip():
-                return response.text, "Gemini", None
-            else:
-                last_error = f"[Gemini attempt {attempt}] Empty response received"
-        except Exception as e:
-            last_error = f"[Gemini attempt {attempt}] {type(e).__name__}: {e}"
-            print(last_error)  # goes to Streamlit Cloud logs
-            if attempt < max_gemini_attempts:
-                time.sleep(1.5)
+    # --- Try Gemini across candidate models ---
+    try:
+        from firegpt_engine_gemini import DEFAULT_GEMINI_MODELS
+        gemini_candidates = DEFAULT_GEMINI_MODELS
+    except ImportError:
+        gemini_candidates = [
+            getattr(firegpt_engine_gemini, "GEMINI_MODEL", "gemini-2.5-flash"),
+            "gemini-2.5-flash",
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+        ]
+    for gem_model in gemini_candidates:
+        for attempt in range(1, max_gemini_attempts + 1):
+            try:
+                response = engine.client.models.generate_content(
+                    model=gem_model,
+                    contents=prompt,
+                )
+                if response.text and response.text.strip():
+                    return response.text, f"Gemini ({gem_model})", None
+                else:
+                    last_error = f"[{gem_model} attempt {attempt}] Empty response received"
+            except Exception as e:
+                last_error = f"[{gem_model} attempt {attempt}] {type(e).__name__}: {e}"
+                print(last_error)  # goes to Streamlit Cloud logs
+                if attempt < max_gemini_attempts:
+                    time.sleep(1.0)
+                else:
+                    # Model failed; advance to next fallback model
+                    break
 
     # --- Gemini failed after retries, try Groq ---
     if groq_client is not None:
@@ -115,15 +129,115 @@ feedback_sheet = get_feedback_sheet()
 # ============================================================
 # CONFIG
 # ============================================================
-MAX_REQUESTS_PER_SESSION = 8          # cap per browser session
-MIN_SECONDS_BETWEEN_REQUESTS = 15     # basic cooldown to avoid spamming Gemini
+MAX_REQUESTS_PER_SESSION = 15         # cap per browser session
+MIN_SECONDS_BETWEEN_REQUESTS = 10     # basic cooldown to avoid spamming Gemini
 
-st.set_page_config(page_title="FireGPT — Fire Safety Advisory", page_icon="🔥", layout="centered")
+st.set_page_config(
+    page_title="FireGPT — Fire Safety Advisory",
+    page_icon="🔥",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+# Custom Emergency Command Styling
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    html, body, [class*="css"] {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Command Center Glassmorphism Containers */
+    .command-header-card {
+        padding: 1.4rem 1.8rem;
+        background: linear-gradient(135deg, rgba(255, 75, 75, 0.14) 0%, rgba(17, 24, 39, 0.85) 100%);
+        border: 1px solid rgba(255, 75, 75, 0.3);
+        border-radius: 14px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(8px);
+    }
+
+    .tactical-threat-panel {
+        background: rgba(17, 24, 39, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    .threat-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 9999px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+    .threat-red {
+        background: rgba(239, 68, 68, 0.25);
+        color: #fca5a5;
+        border: 1px solid #ef4444;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+    }
+    .threat-orange {
+        background: rgba(249, 115, 22, 0.25);
+        color: #fdba74;
+        border: 1px solid #f97316;
+        box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+    }
+    .threat-yellow {
+        background: rgba(234, 179, 8, 0.25);
+        color: #fde047;
+        border: 1px solid #eab308;
+        box-shadow: 0 0 12px rgba(234, 179, 8, 0.4);
+    }
+    .threat-blue {
+        background: rgba(59, 130, 246, 0.25);
+        color: #93c5fd;
+        border: 1px solid #3b82f6;
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+    
+    .checklist-category-header {
+        background: linear-gradient(90deg, rgba(255, 75, 75, 0.2) 0%, rgba(255, 75, 75, 0.02) 100%);
+        border-left: 4px solid #ff4b4b;
+        padding: 9px 16px;
+        margin-top: 1.4rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: #ffffff;
+        border-radius: 0 8px 8px 0;
+        letter-spacing: 0.02em;
+    }
+
+    .stCheckbox > label {
+        font-size: 0.96rem !important;
+        line-height: 1.5 !important;
+        color: #f1f5f9 !important;
+        font-weight: 500 !important;
+    }
+
+    .quick-stat-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 10px 14px;
+        text-align: center;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # ============================================================
 # LOAD ENGINE (cached so it only loads once, not per request)
 # ============================================================
-ENGINE_VERSION = "2.1.2"
+ENGINE_VERSION = "2.3.0"
 
 @st.cache_resource
 def load_engine(version=ENGINE_VERSION):
@@ -134,7 +248,6 @@ def load_engine(version=ENGINE_VERSION):
             "Add it under App settings → Secrets before using this app."
         )
         st.stop()
-    importlib.reload(firegpt_engine_gemini)
     return firegpt_engine_gemini.FireGPTEngine(api_key=api_key)
 
 
@@ -142,33 +255,49 @@ engine = load_engine(ENGINE_VERSION)
 
 
 # ============================================================
-# SESSION STATE (per-visitor rate limiting)
+# SESSION STATE (per-visitor rate limiting and live states)
 # ============================================================
 if "request_count" not in st.session_state:
     st.session_state.request_count = 0
 if "last_request_time" not in st.session_state:
     st.session_state.last_request_time = None
+if "current_advisory" not in st.session_state:
+    st.session_state.current_advisory = None
+if "current_retrieved" not in st.session_state:
+    st.session_state.current_retrieved = []
+if "current_model_used" not in st.session_state:
+    st.session_state.current_model_used = None
+if "current_threat" not in st.session_state:
+    st.session_state.current_threat = None
+if "incident_text_input" not in st.session_state:
+    st.session_state.incident_text_input = ""
 
 # ============================================================
 # UI — HEADER
 # ============================================================
-st.title("🔥 FireGPT")
-st.caption(
-    "Fire safety decision-support tool for incident commanders. "
-    "This is a **beta/testing build** — outputs are reference suggestions only, "
-    "not a substitute for on-ground judgment."
-)
+st.markdown("""
+<div style="padding: 1.2rem 1.5rem; background: linear-gradient(135deg, rgba(255, 75, 75, 0.12) 0%, rgba(25, 28, 36, 0.8) 100%); border: 1px solid rgba(255, 75, 75, 0.25); border-radius: 12px; margin-bottom: 1.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+            <h1 style="margin:0; font-size: 2rem; font-weight:800; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                🔥 FireGPT <span style="font-size:0.75rem; padding:3px 8px; background:rgba(255,75,75,0.3); border:1px solid #ff4b4b; border-radius:4px; font-weight:700;">COMMAND V2.2</span>
+            </h1>
+            <p style="margin:4px 0 0 0; color:#cbd5e1; font-size:0.92rem;">
+                Operational fire safety decision-support synthesizing <b>NBC 2016 Part 4</b>, field dispatch constraints, and historical precedent analysis.
+            </p>
+        </div>
+        <div>
+            <span style="font-size:0.8rem; background:rgba(16, 185, 129, 0.15); color:#34d399; padding:4px 10px; border-radius:20px; border:1px solid #059669; font-weight:600;">
+                ● AI Engines Active (Gemini + Groq Fallback)
+            </span>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
-st.divider()
-
-# ============================================================
-# UI — INPUT
-# ============================================================
 # ============================================================
 # UI — INPUT & QUICK PRESETS
 # ============================================================
-st.subheader("Describe the live incident")
-
 SCENARIO_PRESETS = {
     "Custom (Type your own)": "",
     "🏥 Hospital ICU Fire (Oxygen & Life Support Hazard)": (
@@ -197,35 +326,48 @@ SCENARIO_PRESETS = {
     ),
 }
 
-selected_preset = st.selectbox(
-    "Scenario template (select to pre-fill or choose Custom)",
-    options=list(SCENARIO_PRESETS.keys()),
-    index=0,
-)
+def on_preset_change():
+    chosen = st.session_state.get("selected_preset_key")
+    if chosen and chosen != "Custom (Type your own)":
+        st.session_state.incident_text_input = SCENARIO_PRESETS[chosen]
+    elif chosen == "Custom (Type your own)":
+        st.session_state.incident_text_input = ""
 
-default_text = SCENARIO_PRESETS[selected_preset] if selected_preset != "Custom (Type your own)" else ""
+input_col, dispatch_col = st.columns([1.1, 0.9], gap="large")
 
-live_incident_text = st.text_area(
-    "Include location/establishment type, cause (if known), what's burning, "
-    "current spread, and any trapped occupants or hazards.",
-    value=default_text,
-    height=140,
-    placeholder=(
-        "e.g. Fire has broken out on the third floor of a hospital in Nagpur. "
-        "Cause suspected to be electrical short circuit in the ICU. "
-        "Smoke spreading through corridors, patients on ventilators on the same floor."
-    ),
-)
+with input_col:
+    st.subheader("1. Incident Report")
+    
+    st.selectbox(
+        "⚡ Scenario Preset Template",
+        options=list(SCENARIO_PRESETS.keys()),
+        index=0,
+        key="selected_preset_key",
+        on_change=on_preset_change,
+        help="Quickly pre-fill realistic high-risk fire scenarios to test tactical checklists."
+    )
 
-# ============================================================
-# UI — OPERATIONAL FIELD PARAMETERS (INCIDENT COMMAND INPUTS)
-# ============================================================
-with st.expander("🚒 Operational & Field Dispatch Parameters (Incident Command Inputs)", expanded=True):
-    st.caption("Provide real-time dispatch and on-scene constraints to calculate fire growth dynamics and logistic feasibility.")
+    live_incident_text = st.text_area(
+        "Describe on-scene status, location, burning materials, hazards, and trapped victims:",
+        key="incident_text_input",
+        height=160,
+        placeholder=(
+            "e.g. Fire has broken out on the 3rd floor of a hospital in Nagpur. "
+            "Suspected electrical short circuit in ICU. Smoke spreading in corridors, "
+            "patients on ventilators, oxygen line in ceiling."
+        ),
+    )
+    
+    top_k = st.slider("Historical reference cases to correlate", min_value=1, max_value=5, value=3)
+
+with dispatch_col:
+    st.subheader("2. Operational Field Realities")
+    st.caption("Provide real-time dispatch and on-scene constraints to calculate flashover risk and logistics.")
+    
     col1, col2 = st.columns(2)
     with col1:
         arrival_time_val = st.selectbox(
-            "⏱️ Fire Dept Arrival / Elapsed Burn Time",
+            "⏱️ Elapsed Burn / Arrival Time",
             options=[
                 "< 5 mins (Incipient / Early Fire Growth)",
                 "5–15 mins (Rapid Growth / High Flashover Risk)",
@@ -233,21 +375,20 @@ with st.expander("🚒 Operational & Field Dispatch Parameters (Incident Command
                 "> 30 mins (Extended Structural Conflagration / Facade Spread)",
             ],
             index=1,
-            help="SFAC benchmark targets 3-5 mins, but Indian urban traffic frequently extends response to 15-25 mins. In t-squared fire dynamics (Q=α*t^2), modern synthetic furnishings reach flashover within 4-8 minutes.",
+            help="In t-squared fire dynamics, synthetic fuels reach flashover in 4-8 minutes.",
         )
         road_condition_val = st.selectbox(
-            "🛣️ Road & Access Route Condition",
+            "🛣️ Road & Access Route",
             options=[
                 "Standard Motorable Municipal Street (3-6m, single tender approach)",
                 "Narrow Congested Gully / Bazaar (< 3m, tender entry blocked; QRV/relay required)",
                 "Wide Paved Arterial Road (>= 6m per NBC 2016, dual tender & aerial platform)",
-                "Potholed / Under Construction / Blocked by parked two-wheelers & overhead wires",
+                "Potholed / Under Construction / Blocked by parked vehicles & overhead wires",
             ],
             index=0,
-            help="NBC 2016 Part 4 specifies min 6m motorable access around buildings >15m. Narrow lanes mandate long hose line relays (>150m).",
         )
         traffic_condition_val = st.selectbox(
-            "🚦 Traffic Congestion Level En Route",
+            "🚦 Traffic Congestion En Route",
             options=[
                 "Moderate Urban Traffic (Minor localized choke points)",
                 "Severe Gridlock / Peak-Hour Traffic (Mutual aid & water bowsers delayed)",
@@ -258,33 +399,31 @@ with st.expander("🚒 Operational & Field Dispatch Parameters (Incident Command
 
     with col2:
         weather_condition_val = st.selectbox(
-            "🌤️ Weather & Environmental Conditions",
+            "🌤️ Weather & Environmental",
             options=[
                 "Normal / Mild Temperature & Calm Winds",
-                "High Summer Heat (>38°C) + Dry Air (Accelerates pyrolysis, extreme crew exhaustion)",
-                "Strong Gusty Winds (>20 km/h) (Rapid horizontal propagation & ember/brand lofting)",
+                "High Summer Heat (>38°C) + Dry Air (Accelerates pyrolysis, crew exhaustion)",
+                "Strong Gusty Winds (>20 km/h) (Rapid horizontal propagation & ember lofting)",
                 "Monsoon Rain / High Humidity (Heavy smoke logging, poor thermal venting)",
             ],
             index=0,
-            help="High ambient heat accelerates ignition while gusty winds push horizontal flame fronts.",
         )
         water_supply_val = st.selectbox(
-            "💧 On-Scene Water Supply & Static Capacity",
+            "💧 On-Scene Water Supply",
             options=[
                 "Tender Onboard Water Only (3000-4500L, lasts ~5-7 min under continuous jetting)",
                 "Dedicated On-site Static Fire Tank / Wet Riser Functioning",
                 "Municipal Pressurized Street Hydrants Available",
-                "Relay Pumping Required from Distant Open Water Source / Canal (>200m)",
+                "Relay Pumping Required from Distant Open Water Source (>200m)",
             ],
             index=0,
-            help="Water supply continuity is critical before interior attack teams are committed.",
         )
         structure_type_val = st.selectbox(
-            "🏢 Structure & Occupancy Classification",
+            "🏢 Structure Classification",
             options=[
-                "Low-Rise Commercial / Residential (< 15 meters)",
-                "High-Rise Building (> 15 meters per NBC 2016 Part 4)",
                 "Hospital / Healthcare Facility (ICU & Bedridden Occupants)",
+                "High-Rise Building (> 15 meters per NBC 2016 Part 4)",
+                "Low-Rise Commercial / Residential (< 15 meters)",
                 "Industrial Godown / Warehouse / Chemical Shed (High Fuel Load)",
                 "Mixed-Use (Commercial Ground Floor + Residential Upper Floors)",
                 "Basement / Underground Enclosure (Severe Heat & Zero Visibility)",
@@ -292,9 +431,27 @@ with st.expander("🚒 Operational & Field Dispatch Parameters (Incident Command
             index=0,
         )
 
-top_k = st.slider("Number of similar past incidents to reference", min_value=1, max_value=5, value=3)
+# Tactical threat level calculation
+def calculate_threat_level(elapsed, structure, road, water):
+    score = 0
+    if "15–30 mins" in elapsed: score += 2
+    elif "> 30 mins" in elapsed: score += 3
+    elif "5–15 mins" in elapsed: score += 1
+    
+    if "Hospital" in structure or "Chemical" in structure or "Basement" in structure: score += 2
+    if "Narrow Congested" in road or "Blocked" in road: score += 2
+    if "Tender Onboard Water Only" in water or "Relay Pumping" in water: score += 2
+    
+    if score >= 6:
+        return "CRITICAL (CODE RED)", "threat-red", "High flashover/collapse probability with acute life-hazard constraints. Prioritize progressive compartment evacuation and immediate uninterrupted water relay."
+    elif score >= 4:
+        return "HIGH (CODE ORANGE)", "threat-orange", "Elevated structural risk or access choke points. Mandatory charged line backup before any vent actions."
+    elif score >= 2:
+        return "MODERATE (CODE YELLOW)", "threat-yellow", "Standard high-alert offensive fire attack. Establish 360-degree size-up and monitor utility isolations."
+    else:
+        return "CONTAINED (CODE BLUE)", "threat-blue", "Incipient stage fire. Standard offensive knock-down with rapid primary search."
 
-submit = st.button("Generate Tactical Checkpoints", type="primary")
+submit = st.button("🚨 Generate Incident Command Checkpoints", type="primary", use_container_width=True)
 
 # ============================================================
 # RATE LIMITING CHECK
@@ -303,8 +460,7 @@ def rate_limit_ok():
     if st.session_state.request_count >= MAX_REQUESTS_PER_SESSION:
         st.warning(
             f"You've reached the {MAX_REQUESTS_PER_SESSION}-request limit for this session. "
-            "Please refresh the page later or come back another time — this keeps the "
-            "free-tier API usable for everyone testing it."
+            "Please refresh the page later to continue testing."
         )
         return False
 
@@ -322,8 +478,9 @@ def rate_limit_ok():
 # HANDLE SUBMISSION
 # ============================================================
 if submit:
-    if not live_incident_text.strip():
-        st.error("Please describe the incident before submitting.")
+    current_input = st.session_state.get("incident_text_input", "").strip()
+    if not current_input:
+        st.error("Please provide details of the incident before submitting.")
     elif rate_limit_ok():
         st.session_state.request_count += 1
         st.session_state.last_request_time = datetime.now()
@@ -337,102 +494,171 @@ if submit:
             "structure_type": structure_type_val,
         }
 
-        # Build comprehensive retrieval query incorporating field reality constraints
-        retrieval_query = (
-            f"{live_incident_text}. "
-            f"Establishment: {structure_type_val}. "
-            f"Road access: {road_condition_val}. "
-            f"Traffic: {traffic_condition_val}. "
-            f"Weather: {weather_condition_val}. "
-            f"Water supply: {water_supply_val}."
+        # Calculate threat assessment
+        threat_label, threat_class, threat_desc = calculate_threat_level(
+            arrival_time_val, structure_type_val, road_condition_val, water_supply_val
         )
+        st.session_state.current_threat = {
+            "label": threat_label,
+            "class": threat_class,
+            "desc": threat_desc
+        }
 
-        with st.spinner("Analyzing incident parameters, matching historical precedents, and synthesizing checkpoints..."):
+        # Clean normalized query for TF-IDF to avoid noise
+        clean_road = "narrow road" if "< 3m" in road_condition_val else "arterial road"
+        clean_water = "onboard tender water" if "Tender Onboard" in water_supply_val else "static water supply"
+        retrieval_query = f"{current_input}. {structure_type_val}. {clean_road}. {clean_water}."
+
+        with st.spinner("Analyzing tactical parameters, matching historical precedents, and synthesizing checkpoints..."):
             retrieved = engine.retrieve(retrieval_query, top_k=top_k)
-            try:
-                prompt = engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
-            except TypeError:
-                # If hot-reloaded process still held a stale cached instance without ops_data
-                st.cache_resource.clear()
-                importlib.reload(firegpt_engine_gemini)
-                fresh_engine = firegpt_engine_gemini.FireGPTEngine(api_key=st.secrets.get("GEMINI_API_KEY"))
-                prompt = fresh_engine.build_prompt(live_incident_text, retrieved, ops_data=ops_data)
-
+            prompt = engine.build_prompt(current_input, retrieved, ops_data=ops_data)
             advisory_text, model_used, last_error = generate_advisory(prompt)
 
-
             if advisory_text is None:
-                st.error(
-                    "Both the primary and backup AI models are currently unavailable. "
-                    "Please wait a minute and click 'Generate Tactical Checkpoints' again."
-                )
-                with st.expander("Technical details (for debugging)"):
+                st.error("Both the primary and backup AI models are currently unavailable. Please retry shortly.")
+                with st.expander("Technical details"):
                     st.code(last_error or "No error details captured.")
-                st.stop()
+            else:
+                st.session_state.current_advisory = advisory_text
+                st.session_state.current_retrieved = retrieved
+                st.session_state.current_model_used = model_used
 
-        st.subheader("Reference incidents used")
-        relevant_found = any(r.get("is_relevant", True) for r in retrieved)
-        if not relevant_found:
-            st.info(
-                "ℹ️ **No direct high-confidence historical match found in database for this specific scenario.** "
-                "The advisory below is synthesized using **National Building Code of India (NBC 2016 Part 4: Fire & Life Safety)** "
-                "protocols, t-squared fire growth dynamics, and standard tactical firefighting doctrine."
-            )
 
+# ============================================================
+# DISPLAY ADVISORY & INTERACTIVE CHECKLISTS
+# ============================================================
+if st.session_state.current_advisory:
+    st.divider()
+    
+    threat = st.session_state.current_threat
+    if threat:
+        st.markdown(f"""
+        <div style="background:rgba(25, 28, 36, 0.95); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px; margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:0.85rem; color:#94a3b8; font-weight:600; text-transform:uppercase;">Tactical Threat Assessment:</span>
+                    <span class="threat-badge {threat['class']}">{threat['label']}</span>
+                </div>
+                <div style="color:#94a3b8; font-size:0.85rem;">
+                    Engine: <b style="color:#f1f5f9;">{st.session_state.current_model_used}</b>
+                </div>
+            </div>
+            <p style="margin:0; font-size:0.95rem; color:#e2e8f0; line-height:1.5;">{threat['desc']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Reference incidents exp/tabs
+    retrieved = st.session_state.current_retrieved
+    with st.expander(f"📚 Correlated Historical Precedents & Verified Sources ({len(retrieved)} Records Evaluated)", expanded=False):
         for rank, r in enumerate(retrieved, start=1):
             inc = r["incident"]
             conf = r.get("confidence", "Moderate")
             score = r.get("score", 0.0)
             badge = "🟢 High Match" if conf == "High" else ("🟡 Moderate Match" if conf == "Moderate" else "⚪ Low Match")
-            with st.expander(f"[{rank}] {inc.get('title', 'Historical Record')} — {badge} (score: {score:.2f})"):
-                st.write(f"**Location:** {inc.get('location', 'N/A')}  |  **Date:** {inc.get('date', 'N/A')}")
-                st.write(f"**Establishment:** {inc.get('establishment_type', 'N/A')}")
-                st.write(f"**Field Realities:** Arrival: ~{inc.get('arrival_time_min', 'N/A')} min | Road: {inc.get('road_condition', 'N/A')}")
-                st.write(f"**Traffic & Weather:** Traffic: {inc.get('traffic_condition', 'N/A')} | Weather: {inc.get('weather_condition', 'N/A')}")
-                st.write(f"**Water Supply on Arrival:** {inc.get('water_supply_status', 'N/A')}")
-                st.write(f"**Control & Extinguishment:** {inc.get('control_extinguishment', 'N/A')}")
-                st.write(f"**Suppression & Mitigation:** {inc.get('suppression_mitigation', 'N/A')}")
-                st.write(f"**Evacuation & Rescue:** {inc.get('evacuation_rescue', 'N/A')}")
+            st.markdown(f"**[{rank}] {inc.get('title', 'Historical Incident')}** — {badge} `(Score: {score:.2f})`")
+            st.caption(f"📍 {inc.get('location', 'N/A')} | 📅 {inc.get('date', 'N/A')} | 🏢 {inc.get('establishment_type', 'N/A')}")
+            st.markdown(f"- **Traffic & Road Access:** {inc.get('traffic_condition', 'N/A')} | {inc.get('road_condition', 'N/A')} (~{inc.get('arrival_time_min', 'N/A')} min arrival)")
+            st.markdown(f"- **Weather Factor:** {inc.get('weather_condition', 'N/A')}")
+            st.markdown(f"- **Key Suppression Action:** {inc.get('control_extinguishment', 'N/A')}")
+            st.markdown(f"- **Rescue & Evacuation:** {inc.get('evacuation_rescue', 'N/A')}")
+            st.markdown(f"- **Verified Source / Investigation:** `{inc.get('primary_source', 'Official Inquiry Log')}`")
+            st.markdown("---")
 
-        st.subheader("📋 Incident Command Tactical Checkpoints")
-        if model_used == "Groq (fallback)":
-            st.caption("⚡ Generated using backup model (Gemini was unavailable)")
+    # Render Interactive Checklist with Task Completion Counter
+    st.subheader("📋 Operational Incident Command Checklist")
+    st.caption("Check off items as they are executed and verified on the ground by dispatch teams.")
+
+    lines = st.session_state.current_advisory.split("\n")
+    checklist_items = [l.strip()[5:].strip() for l in lines if l.strip().startswith("- [ ]") or l.strip().startswith("- [x]")]
+    total_items = len(checklist_items)
+    
+    # Count checked items
+    completed_items = sum(1 for i in range(total_items) if st.session_state.get(f"tactical_task_{i}", False))
+    progress_val = (completed_items / total_items) if total_items > 0 else 0.0
+
+    col_action, col_meta = st.columns([2.5, 1], gap="large")
+
+    with col_action:
+        # Progress indicator bar
+        st.progress(progress_val, text=f"Field Task Execution: {completed_items} of {total_items} Checkpoints Verified ({int(progress_val*100)}%)")
         
-        st.markdown(advisory_text)
+        checkbox_idx = 0
+        for line in lines:
+            trimmed = line.strip()
+            if trimmed.startswith("### "):
+                section_title = trimmed.replace("### ", "")
+                st.markdown(f'<div class="checklist-category-header">{section_title}</div>', unsafe_allow_html=True)
+            elif trimmed.startswith("- [ ]") or trimmed.startswith("- [x]"):
+                item_text = trimmed[5:].strip()
+                st.checkbox(item_text, key=f"tactical_task_{checkbox_idx}")
+                checkbox_idx += 1
+            elif trimmed.startswith("⚠️"):
+                st.warning(trimmed)
+            elif trimmed:
+                st.markdown(trimmed)
 
+    with col_meta:
+        st.markdown(f"""
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); border-radius:12px; padding:18px; margin-bottom:16px;">
+            <div style="font-size:0.75rem; color:#94a3b8; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Incident Operational Status</div>
+            <div style="font-size:1.2rem; font-weight:800; color:{'#34d399' if progress_val == 1.0 else '#f59e0b'}; margin-bottom:8px;">
+                {'✅ ALL TASKS COMPLETE' if progress_val == 1.0 else f'{completed_items} / {total_items} Executed'}
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;">
+                <div class="quick-stat-box">
+                    <div style="font-size:0.7rem; color:#94a3b8;">Burn Time</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:#f8fafc;">{arrival_time_val.split(' ')[0]}</div>
+                </div>
+                <div class="quick-stat-box">
+                    <div style="font-size:0.7rem; color:#94a3b8;">Water Mode</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:#f8fafc;">{'Relay' if 'Relay' in water_supply_val else 'Tank/Line'}</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
         st.download_button(
-            label="📥 Export Tactical Checkpoints (.txt)",
-            data=advisory_text,
+            label="📥 Export Checklist (.txt)",
+            data=st.session_state.current_advisory,
             file_name=f"FireGPT_Checkpoints_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
             mime="text/plain",
+            use_container_width=True
         )
 
-
+        if st.button("🔄 Reset Checklist State", use_container_width=True):
+            for i in range(total_items):
+                st.session_state[f"tactical_task_{i}"] = False
+            st.rerun()
 
 st.divider()
 
 # ============================================================
-# FEEDBACK BOX (for testers)
+# FEEDBACK BOX
 # ============================================================
-st.subheader("Feedback")
-st.caption("Testing this with friends/colleagues? Flag anything that seemed off, missing, or wrong.")
-tester_name = st.text_input("Your name", key="tester_name")
-feedback = st.text_area("Your feedback", height=80, key="feedback_box")
-if st.button("Submit feedback"):
+st.subheader("Field Feedback & Accuracy Flagging")
+st.caption("Testing this with officers or colleagues? Flag anything that seemed inaccurate, missing, or impractical.")
+
+fb_col1, fb_col2 = st.columns([1, 2])
+with fb_col1:
+    tester_name = st.text_input("Officer / Responder Name", key="tester_name")
+with fb_col2:
+    feedback = st.text_area("Observations, corrections, or field feasibility remarks", height=70, key="feedback_box")
+
+if st.button("Submit Field Feedback"):
     if not tester_name.strip():
-        st.warning("Please enter your name before submitting.")
+        st.warning("Please enter your name before submitting feedback.")
     elif feedback.strip():
         timestamp = datetime.now().isoformat()
-        # Always log locally too, as a backup
         print(f"[FEEDBACK] {timestamp} :: {tester_name} :: {feedback}")
 
         if feedback_sheet is not None:
             try:
-                feedback_sheet.append_row([timestamp, tester_name, feedback, live_incident_text])
-                st.success("Thanks! Your feedback has been recorded.")
+                feedback_sheet.append_row([timestamp, tester_name, feedback, st.session_state.get("incident_text_input", "")])
+                st.success("Feedback logged to central dispatch sheet.")
             except Exception as e:
                 st.error(f"Could not save feedback to sheet: {e}")
         else:
-            st.warning("Feedback sheet isn't connected — feedback only logged locally for now.")
+            st.info("Feedback recorded locally.")
     else:
-        st.warning("Feedback box is empty.")
+        st.warning("Feedback field is empty.")
+
